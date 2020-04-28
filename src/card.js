@@ -21,11 +21,13 @@ const useStyles = makeStyles({
     position: "fixed",
     bottom: "1.3rem",
     //left: "2rem",
-    zIndex: "8000",
+    zIndex: "1000",
     minWidth: 345,
   },
   fab: {
-    marginLeft: "auto !important",
+    //marginLeft: "auto !important",
+    flexGrow: 1,
+    alignContent: "flex-end",
   },
   actions: {
     paddingLeft: "2rem",
@@ -58,7 +60,7 @@ export default function DefaultCard() {
                 </Avatar>
               </Badge>
             </Grid>
-            <Grid item xs={10} spacing={0}>
+            <Grid item xs={10}>
               <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Bays Available : </strong>{" "}
                 <span color="secondary">4</span>
@@ -70,7 +72,7 @@ export default function DefaultCard() {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actions}>
-        <Button size="small" color="secondary" marginLeft={100}>
+        <Button size="small" color="secondary" marginleft={100}>
           Navigate
         </Button>
         {/* <Fab color="primary" aria-label="add" className={classes.fab}>
