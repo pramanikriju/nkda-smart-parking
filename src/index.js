@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import Login from "./login";
+import Booking from "./booking";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -10,9 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        {/* <Route path="/about">
-        <About />
-      </Route> */}
+        <Route path="/booking">
+          <Booking />
+        </Route>
         <Route path="/app">
           <App />
         </Route>

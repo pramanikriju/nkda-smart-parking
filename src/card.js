@@ -83,6 +83,7 @@ export default function DefaultCard() {
           color="primary"
           className={classes.fab}
           endIcon={<Icon>send</Icon>}
+          href="/booking"
         >
           Book now
         </Button>
