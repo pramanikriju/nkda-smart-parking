@@ -62,7 +62,7 @@ function ListItemLink(props) {
 
 export default function Appbar() {
   const classes = useStyles();
-  const [drawer, setDrawer] = useState(true);
+  const [drawer, setDrawer] = useState(false);
 
   const toggleDrawer = () => (event) => {
     if (
@@ -158,7 +158,7 @@ export default function Appbar() {
             <Divider />
             <List component="nav" aria-label="secondary mailbox folders">
               <ListItem button>
-                <ListItemText primary="Trash" />
+                <ListItemText primary="Feedback" />
               </ListItem>
               <ListItemLink href="#simple-list">
                 <ListItemText primary="Logout" />
