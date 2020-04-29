@@ -114,12 +114,7 @@ export default function Appbar() {
                 RP
               </Avatar>
             </Grid>
-            <Grid
-              xs="8"
-              align="center"
-              justify="center"
-              className={classes.user}
-            >
+            <Grid item xs={8} align="center" className={classes.user}>
               <Typography variant="h6" component="h6">
                 User Name
               </Typography>
@@ -160,7 +155,7 @@ export default function Appbar() {
               <ListItem button>
                 <ListItemText primary="Feedback" />
               </ListItem>
-              <ListItemLink href="#simple-list">
+              <ListItemLink href="/">
                 <ListItemText primary="Logout" />
               </ListItemLink>
             </List>

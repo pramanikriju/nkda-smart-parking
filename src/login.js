@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     background: "rgb(255,255,255,0.8)",
   },
   password: {
+    maxWidth: "230px !important",
     minWidth: "230px !important",
   },
   link: {
@@ -115,7 +116,10 @@ export default function Login() {
                         onChange={handleChange("password")}
                         variant="outlined"
                         endAdornment={
-                          <InputAdornment position="end">
+                          <InputAdornment
+                            position="end"
+                            style={{ padding: "12px" }}
+                          >
                             <AccountCircle />
                           </InputAdornment>
                         }
