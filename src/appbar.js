@@ -133,7 +133,7 @@ export default function Appbar() {
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="New Bookings" />
+                <ListItemText primary="New Booking" />
               </ListItem>
               <ListItem button>
                 <ListItemIcon>
