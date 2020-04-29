@@ -75,103 +75,101 @@ export default function Login() {
       >
         <Grid item>
           <Card className={classes.card}>
-            <CardActionArea>
-              <CardContent>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  spacing={1}
-                >
-                  <Grid item xs={12}>
-                    <img src={Logo} alt="logo" />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography variant="h5" component="h2">
-                      NKDA Smart Parking
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormControl
-                      className={classes.password}
-                      // className={clsx(classes.margin, classes.textField)}
-                    >
-                      <InputLabel htmlFor="standard-adornment-password">
-                        Username
-                      </InputLabel>
-                      <Input
-                        id="standard-adornment-password"
-                        type="text"
-                        //value={values.text}
-                        onChange={handleChange("password")}
-                        variant="outlined"
-                        endAdornment={
-                          <InputAdornment
-                            position="end"
-                            style={{ padding: "12px" }}
-                          >
-                            <AccountCircle />
-                          </InputAdornment>
-                        }
-                      />
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormControl
-                      className={classes.password}
-                      // className={clsx(classes.margin, classes.textField)}
-                    >
-                      <InputLabel htmlFor="standard-adornment-password">
-                        Password
-                      </InputLabel>
-                      <Input
-                        //id="standard-adornment-password"
-                        type={values.showPassword ? "text" : "password"}
-                        //value={values.password}
-                        onChange={handleChange("password")}
-                        variant="outlined"
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? (
-                                <Visibility />
-                              ) : (
-                                <VisibilityOff />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                      />
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.link}
-                      endIcon={<Icon>send</Icon>}
-                      href="/app"
-                    >
-                      Login
-                    </Button>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button
-                      size="small"
-                      color="secondary"
-                      //className={classes.link}
-                    >
-                      Don't have an account? Register here
-                    </Button>
-                  </Grid>
+            <CardContent>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                spacing={1}
+              >
+                <Grid item xs={12}>
+                  <img src={Logo} alt="logo" />
                 </Grid>
-              </CardContent>
-            </CardActionArea>
+                <Grid item xs={12}>
+                  <Typography variant="h5" component="h2">
+                    NKDA Smart Parking
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl
+                    className={classes.password}
+                    // className={clsx(classes.margin, classes.textField)}
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
+                      Username
+                    </InputLabel>
+                    <Input
+                      id="standard-adornment-password"
+                      type="text"
+                      //value={values.text}
+                      onChange={handleChange("password")}
+                      variant="outlined"
+                      endAdornment={
+                        <InputAdornment
+                          position="end"
+                          style={{ padding: "12px" }}
+                        >
+                          <AccountCircle />
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl
+                    className={classes.password}
+                    // className={clsx(classes.margin, classes.textField)}
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
+                      Password
+                    </InputLabel>
+                    <Input
+                      //id="standard-adornment-password"
+                      type={values.showPassword ? "text" : "password"}
+                      //value={values.password}
+                      onChange={handleChange("password")}
+                      variant="outlined"
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                          >
+                            {values.showPassword ? (
+                              <Visibility />
+                            ) : (
+                              <VisibilityOff />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.link}
+                    endIcon={<Icon>send</Icon>}
+                    href="/app"
+                  >
+                    Login
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    size="small"
+                    color="secondary"
+                    //className={classes.link}
+                  >
+                    Don't have an account? Register here
+                  </Button>
+                </Grid>
+              </Grid>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>

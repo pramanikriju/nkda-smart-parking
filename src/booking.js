@@ -83,95 +83,93 @@ export default function Booking() {
         <Grid item>
           <MuiPickersUtilsProvider utils={MomentUtils}>
             <Card className={classes.card}>
-              <CardActionArea>
-                <CardContent>
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    spacing={1}
-                  >
-                    {/* <Grid item xs={12}>
+              <CardContent>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  spacing={1}
+                >
+                  {/* <Grid item xs={12}>
                     <img src={Logo} alt="logo" />
                   </Grid> */}
-                    <Grid item xs={12}>
-                      <Typography variant="h5" component="h2">
-                        New Booking
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">
-                          Select Car
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={car}
-                          onChange={handleChangeCar}
-                        >
-                          <MenuItem value={10}>WB 23 AD 1354</MenuItem>
-                          <MenuItem value={20}>WB 56 DE 1312</MenuItem>
-                          <MenuItem value={30}>WB 46 DN 0208</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">
-                          Select Garage
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select1"
-                          value={garage}
-                          onChange={handleChangeGarage}
-                        >
-                          <MenuItem value={10}>Axis Mall</MenuItem>
-                          <MenuItem value={20}>Newtown Area II</MenuItem>
-                          <MenuItem value={30}>Parking Lot 3</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                      <KeyboardTimePicker
-                        margin="normal"
-                        id="time-picker"
-                        label="Time picker"
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        KeyboardButtonProps={{
-                          "aria-label": "change time",
-                        }}
-                      />
-                    </Grid>
-
-                    <Grid item xs={12}>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.link}
-                        endIcon={<Icon>send</Icon>}
-                        href="/app"
-                      >
-                        Confirm Booking
-                      </Button>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Button
-                        size="small"
-                        color="secondary"
-                        href="/app"
-                        //className={classes.link}
-                      >
-                        Go back
-                      </Button>
-                    </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" component="h2">
+                      New Booking
+                    </Typography>
                   </Grid>
-                </CardContent>
-              </CardActionArea>
+                  <Grid item xs={12}>
+                    <FormControl className={classes.formControl}>
+                      <InputLabel id="demo-simple-select-label">
+                        Select Car
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={car}
+                        onChange={handleChangeCar}
+                      >
+                        <MenuItem value={10}>WB 23 AD 1354</MenuItem>
+                        <MenuItem value={20}>WB 56 DE 1312</MenuItem>
+                        <MenuItem value={30}>WB 46 DN 0208</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControl className={classes.formControl}>
+                      <InputLabel id="demo-simple-select-label">
+                        Select Garage
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select1"
+                        value={garage}
+                        onChange={handleChangeGarage}
+                      >
+                        <MenuItem value={10}>Axis Mall</MenuItem>
+                        <MenuItem value={20}>Newtown Area II</MenuItem>
+                        <MenuItem value={30}>Parking Lot 3</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <KeyboardTimePicker
+                      margin="normal"
+                      id="time-picker"
+                      label="Time picker"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                      KeyboardButtonProps={{
+                        "aria-label": "change time",
+                      }}
+                    />
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.link}
+                      endIcon={<Icon>send</Icon>}
+                      href="/app"
+                    >
+                      Confirm Booking
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      size="small"
+                      color="secondary"
+                      href="/app"
+                      //className={classes.link}
+                    >
+                      Go back
+                    </Button>
+                  </Grid>
+                </Grid>
+              </CardContent>
             </Card>
           </MuiPickersUtilsProvider>
         </Grid>
