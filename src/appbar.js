@@ -11,14 +11,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import Drawer from "@material-ui/core/Drawer";
-import clsx from "clsx";
-import Paper from "@material-ui/core/Paper";
 import { Grid } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import CommuteIcon from "@material-ui/icons/Commute";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   centered: {

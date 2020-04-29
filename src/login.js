@@ -1,29 +1,19 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import Icon from "@material-ui/core/Icon";
-import Avatar from "@material-ui/core/Avatar";
-import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
-import Badge from "@material-ui/core/Badge";
 import Image from "./img/bg.jpg"; // Import using relative path
 import Logo from "./img/nkda_logo.jpg";
-import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
@@ -62,6 +52,7 @@ export default function Login() {
   });
 
   const handleChange = (prop) => (event) => {
+    //event.stopPropagation();
     setValues({ ...values, [prop]: event.target.value });
   };
 
