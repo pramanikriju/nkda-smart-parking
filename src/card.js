@@ -11,15 +11,25 @@ import Avatar from "@material-ui/core/Avatar";
 import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
+import MomentUtils from "@date-io/moment";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+} from "@material-ui/pickers";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    //maxWidth: 345,
+    flexGrow: 1,
+    //margin: "1.1rem",
+    marginLeft: "1.3rem",
+    marginRight: "1.3rem",
     position: "fixed",
     bottom: "1.3rem",
     //left: "2rem",
+    //alignContent: "center",
     zIndex: "1000",
-    minWidth: 345,
+    //minWidth: 345,
   },
   fab: {
     //marginLeft: "auto !important",
@@ -27,8 +37,9 @@ const useStyles = makeStyles({
     alignContent: "flex-end",
   },
   actions: {
-    paddingLeft: "2rem",
-    paddingRight: "1.5rem",
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    paddingBottom: "16px",
   },
   content: {
     paddingBottom: "0px !important",
@@ -41,6 +52,12 @@ const useStyles = makeStyles({
 
 export default function DefaultCard() {
   const classes = useStyles();
+
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
   return (
     <Card className={classes.root}>
@@ -65,6 +82,20 @@ export default function DefaultCard() {
                 Parking bay near Axis Mall. Rates starting from Rs. 10/HR
               </Typography>
             </Grid>
+            <Grid item xs={12}>
+              <MuiPickersUtilsProvider utils={MomentUtils}>
+                <KeyboardTimePicker
+                  margin="normal"
+                  id="time-picker"
+                  label="Time picker"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time",
+                  }}
+                />
+              </MuiPickersUtilsProvider>
+            </Grid>
           </Grid>
         </CardContent>
       </CardActionArea>
@@ -80,7 +111,7 @@ export default function DefaultCard() {
           color="primary"
           className={classes.fab}
           endIcon={<Icon>send</Icon>}
-          href="/booking"
+          //href="/booking"
         >
           Book now
         </Button>

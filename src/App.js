@@ -13,9 +13,11 @@ function App() {
 
       <Map />
 
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row">
         <DefaultCard className="cardDefault" />
-        <Search className="search" />
+        <Grid item>
+          <Search className="search" />
+        </Grid>
       </Grid>
     </div>
   );

@@ -6,11 +6,16 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(1),
+    flexGrow: 1,
     position: "fixed",
     top: "4rem",
     zIndex: "1000",
     background: "rgb(255,255,255,0.8)",
+    marginLeft: "1.3rem",
+    marginRight: "1.3rem",
+    minWidth: "333px",
+    maxWidth: "438px",
+    width: "inherit",
   },
 }));
 
@@ -24,6 +29,8 @@ export default function Search() {
       //label="TextField"
       variant="outlined"
       placeholder="Search Garages"
+      margin="normal"
+      //fullWidth
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
