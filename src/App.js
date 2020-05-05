@@ -13,7 +13,7 @@ function App() {
 
       <Map />
 
-      <Grid container direction="row">
+      <Grid container direction="row" justify="flex-start" alignItems="stretch">
         <DefaultCard className="cardDefault" />
         <Grid item>
           <Search className="search" />
