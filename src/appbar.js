@@ -129,18 +129,18 @@ export default function Appbar() {
         >
           <Grid item xs={12}>
             <List component="nav" aria-label="main mailbox folders">
-              <ListItem button>
+              <ListItemLink href="/app">
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
                 <ListItemText primary="New Booking" />
-              </ListItem>
-              <ListItem button>
+              </ListItemLink>
+              <ListItemLink href="/history">
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Booking history" />
-              </ListItem>
+              </ListItemLink>
               <ListItem button>
                 <ListItemIcon>
                   <CommuteIcon />

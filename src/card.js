@@ -70,59 +70,62 @@ export default function DefaultCard() {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5" component="h2">
-            Parking Bay 1
-          </Typography>
-          <Grid container spacing={0}>
-            <Grid item xs={2}>
-              <Badge badgeContent={4} color="secondary">
-                <Avatar variant="rounded" className={classes.rounded}>
-                  <EmojiTransportationIcon />
-                </Avatar>
-              </Badge>
-            </Grid>
-            <Grid item xs={10}>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <strong>Bays Available : </strong>{" "}
-                <span color="secondary">4</span>
-                <br />
-                Parking bay near Axis Mall. Rates starting from Rs. 10/HR
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <MuiPickersUtilsProvider utils={MomentUtils}>
-                <Animated
-                  animationIn="zoomIn"
-                  animationOut="zoomOut"
-                  isVisible={fading}
-                  style={visible ? null : { display: "none" }}
-                >
-                  <TimePicker
-                    margin="normal"
-                    id="time-picker"
-                    label="Select booking time"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    fullWidth
-                    // InputProps={{
-                    //   endAdornment: (
-                    //     <IconButton onClick={() => handleDateChange(null)}>
-                    //       <ClearIcon />
-                    //     </IconButton>
-                    //   ),
-                    // }}
-                    // InputAdornmentProps={{
-                    //   position: "start",
-                    // }}
-                  />
-                </Animated>
-              </MuiPickersUtilsProvider>
-            </Grid>
+      <CardContent className={classes.content}>
+        <Grid container spacing={0}>
+          <Grid item xs={2}></Grid>
+          <Grid item xs={10}>
+            <Typography gutterBottom variant="h5" component="h2">
+              Parking Bay 1
+            </Typography>
           </Grid>
-        </CardContent>
-      </CardActionArea>
+        </Grid>
+        <Grid container spacing={0}>
+          <Grid item xs={2}>
+            <Badge badgeContent={4} color="secondary">
+              <Avatar variant="rounded" className={classes.rounded}>
+                <EmojiTransportationIcon />
+              </Avatar>
+            </Badge>
+          </Grid>
+          <Grid item xs={10}>
+            <Typography variant="body2" color="textSecondary" component="p">
+              <strong>Bays Available : </strong>{" "}
+              <span color="secondary">4</span>
+              <br />
+              Parking bay near Axis Mall. Rates starting from Rs. 10/HR
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <Animated
+                animationIn="zoomIn"
+                animationOut="zoomOut"
+                isVisible={fading}
+                style={visible ? null : { display: "none" }}
+              >
+                <TimePicker
+                  margin="normal"
+                  id="time-picker"
+                  label="Select booking time"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                  fullWidth
+                  // InputProps={{
+                  //   endAdornment: (
+                  //     <IconButton onClick={() => handleDateChange(null)}>
+                  //       <ClearIcon />
+                  //     </IconButton>
+                  //   ),
+                  // }}
+                  // InputAdornmentProps={{
+                  //   position: "start",
+                  // }}
+                />
+              </Animated>
+            </MuiPickersUtilsProvider>
+          </Grid>
+        </Grid>
+      </CardContent>
       <CardActions className={classes.actions}>
         <Button size="small" color="secondary" marginleft={100}>
           Navigate

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     position: "fixed",
-    top: "4rem",
+    top: "3.8rem",
     zIndex: "1000",
     background: "rgb(255,255,255,0.8)",
     marginLeft: "1.3rem",
