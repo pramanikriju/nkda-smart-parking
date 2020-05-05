@@ -25,9 +25,27 @@ const useStyles = makeStyles({
 });
 
 const garages = [
-  { id: 1, lat: "22.578564", long: "88.46249", name: "Axis Mall" },
-  { id: 2, lat: "22.583260", long: "88.461419", name: "Action Area I" },
-  { id: 3, lat: "22.582965", long: "88.453372", name: "AD Block" },
+  {
+    id: 1,
+    lat: "22.578564",
+    long: "88.46249",
+    name: "Axis Mall",
+    available: Math.floor(Math.random() * 10),
+  },
+  {
+    id: 2,
+    lat: "22.583260",
+    long: "88.461419",
+    name: "Action Area I",
+    available: Math.floor(Math.random() * 10),
+  },
+  {
+    id: 3,
+    lat: "22.582965",
+    long: "88.453372",
+    name: "AD Block",
+    available: Math.floor(Math.random() * 10),
+  },
 ];
 
 function Map() {

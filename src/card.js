@@ -51,16 +51,19 @@ function DefaultCard(props) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
-
-  const available = Math.floor(Math.random() * 10);
+  const [cancel, setCancel] = useState("Navigate");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
   function showTime() {
-    setFading(true);
-    setTimeout(() => setVisible(true), 200);
+    setFading(!fading);
+    //setVisible(!visible);
+    setTimeout(() => setVisible(!visible), 200);
+    !visible
+      ? setTimeout(() => setCancel("Cancel"), 300)
+      : setCancel("Navigate");
   }
 
   return (
@@ -76,7 +79,7 @@ function DefaultCard(props) {
         </Grid>
         <Grid container spacing={0}>
           <Grid item xs={2}>
-            <Badge badgeContent={available} color="secondary">
+            <Badge badgeContent={props.garage.available} color="secondary">
               <Avatar variant="rounded" className={classes.rounded}>
                 <EmojiTransportationIcon />
               </Avatar>
@@ -85,7 +88,7 @@ function DefaultCard(props) {
           <Grid item xs={10}>
             <Typography variant="body2" color="textSecondary" component="p">
               <strong>Bays Available : </strong>
-              <span color="secondary">{available}</span>
+              <span color="secondary">{props.garage.available}</span>
               <br />
               Parking bay near {props.garage.name}. Rates starting from Rs.
               10/HR
@@ -123,8 +126,13 @@ function DefaultCard(props) {
         </Grid>
       </CardContent>
       <CardActions className={classes.actions}>
-        <Button size="small" color="secondary" marginleft={100}>
-          Navigate
+        <Button
+          size="small"
+          color="secondary"
+          marginleft={100}
+          onClick={showTime}
+        >
+          {cancel}
         </Button>
         {/* <Fab color="primary" aria-label="add" className={classes.fab}>
           <AddIcon />
