@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -11,11 +11,9 @@ import Avatar from "@material-ui/core/Avatar";
 import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
+import { Animated } from "react-animated-css";
 import MomentUtils from "@date-io/moment";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-} from "@material-ui/pickers";
+import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +28,9 @@ const useStyles = makeStyles({
     //alignContent: "center",
     zIndex: "1000",
     //minWidth: 345,
+    height: "auto",
+    maxHeight: "500px",
+    transition: "max-height 1s ease-out",
   },
   fab: {
     //marginLeft: "auto !important",
@@ -53,11 +54,18 @@ const useStyles = makeStyles({
 export default function DefaultCard() {
   const classes = useStyles();
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [visible, setVisible] = useState(false);
+  const [fading, setFading] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
+
+  function showTime() {
+    setFading(true);
+    setTimeout(() => setVisible(true), 200);
+  }
 
   return (
     <Card className={classes.root}>
@@ -84,16 +92,21 @@ export default function DefaultCard() {
             </Grid>
             <Grid item xs={12}>
               <MuiPickersUtilsProvider utils={MomentUtils}>
-                <KeyboardTimePicker
-                  margin="normal"
-                  id="time-picker"
-                  label="Time picker"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    "aria-label": "change time",
-                  }}
-                />
+                <Animated
+                  animationIn="zoomIn"
+                  animationOut="zoomOut"
+                  isVisible={fading}
+                  style={visible ? null : { display: "none" }}
+                >
+                  <TimePicker
+                    margin="normal"
+                    id="time-picker"
+                    label="Select booking time"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    fullWidth
+                  />
+                </Animated>
               </MuiPickersUtilsProvider>
             </Grid>
           </Grid>
@@ -111,6 +124,7 @@ export default function DefaultCard() {
           color="primary"
           className={classes.fab}
           endIcon={<Icon>send</Icon>}
+          onClick={showTime}
           //href="/booking"
         >
           Book now
