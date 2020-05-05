@@ -52,6 +52,8 @@ function DefaultCard(props) {
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
 
+  const available = Math.floor(Math.random() * 10);
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -74,7 +76,7 @@ function DefaultCard(props) {
         </Grid>
         <Grid container spacing={0}>
           <Grid item xs={2}>
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={available} color="secondary">
               <Avatar variant="rounded" className={classes.rounded}>
                 <EmojiTransportationIcon />
               </Avatar>
@@ -83,7 +85,7 @@ function DefaultCard(props) {
           <Grid item xs={10}>
             <Typography variant="body2" color="textSecondary" component="p">
               <strong>Bays Available : </strong>
-              <span color="secondary">4</span>
+              <span color="secondary">{available}</span>
               <br />
               Parking bay near {props.garage.name}. Rates starting from Rs.
               10/HR

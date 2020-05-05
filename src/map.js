@@ -9,7 +9,7 @@ import DefaultCard from "./card";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 550,
     flexGrow: 1,
     //margin: "1.1rem",
     marginLeft: "1.3rem",
@@ -80,6 +80,7 @@ function Map() {
         <Carousel
           value={active}
           onChange={changeCarousel}
+          offset={2}
           slides={[
             <DefaultCard garage={garages[0]} />,
             <DefaultCard garage={garages[1]} />,
