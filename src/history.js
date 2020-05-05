@@ -11,9 +11,10 @@ import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
 import CardActions from "@material-ui/core/CardActions";
-import IconButton from "@material-ui/core/IconButton";
-import PrintDisabledIcon from "@material-ui/icons/PrintDisabled";
-import CloseIcon from "@material-ui/icons/Close";
+import DriveEtaIcon from "@material-ui/icons/DriveEta";
+import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
+import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
+import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import PrintIcon from "@material-ui/icons/Print";
 import InfoIcon from "@material-ui/icons/Info";
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     // backgroundPosition: "center",
   },
   container: {
-    marginTop: "70px",
+    marginTop: "60px",
     //minHeight: "auto",
   },
   card: {
@@ -81,7 +82,7 @@ export default function History() {
         direction="column"
         justify="flex-start"
         alignItems="stretch"
-        //spacing={1}
+        spacing={0}
       >
         <Grid item>
           <Card className={classes.cardItem}>
@@ -100,7 +101,7 @@ export default function History() {
                     variant="dot"
                   >
                     <Avatar variant="rounded" className={classes.rounded}>
-                      <EmojiTransportationIcon />
+                      <DriveEtaIcon />
                     </Avatar>
                   </Badge>
                 </Grid>
@@ -111,6 +112,7 @@ export default function History() {
                       className={classes.end}
                       label="Ongoing"
                       color="primary"
+                      variant="outlined"
                     />
                   </Typography>
                   <Typography>
@@ -123,16 +125,16 @@ export default function History() {
               </Grid>
             </CardContent>
             <CardActions className={classes.end}>
-              <IconButton aria-label="add to favorites">
+              {/* <IconButton aria-label="add to favorites">
                 <PrintDisabledIcon />
-              </IconButton>
+              </IconButton> */}
               <Button
-                variant="outlined"
-                color="secondary"
+                variant="contained"
+                color="primary"
                 className={classes.button}
-                startIcon={<CloseIcon />}
+                startIcon={<InfoIcon />}
               >
-                End Booking
+                View Details
               </Button>
             </CardActions>
           </Card>
@@ -154,7 +156,7 @@ export default function History() {
                     variant="dot"
                   >
                     <Avatar variant="rounded" className={classes.rounded}>
-                      <EmojiTransportationIcon />
+                      <MotorcycleIcon />
                     </Avatar>
                   </Badge>
                 </Grid>
@@ -165,59 +167,6 @@ export default function History() {
                       className={classes.end}
                       label="Ongoing"
                       color="primary"
-                    />
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Date : </strong> May 25 2020
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Time : </strong>03:14 PM
-                  </Typography>
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions className={classes.end}>
-              <IconButton aria-label="add to favorites">
-                <PrintDisabledIcon />
-              </IconButton>
-              <Button
-                variant="outlined"
-                color="secondary"
-                className={classes.button}
-                startIcon={<CloseIcon />}
-              >
-                End Booking
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item>
-          <Card className={classes.cardItem}>
-            <CardContent className={classes}>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={2}>
-                  <Badge
-                    className={classes.online}
-                    color="secondary"
-                    variant="none"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <EmojiTransportationIcon />
-                    </Avatar>
-                  </Badge>
-                </Grid>
-                <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    WB AD 0208
-                    <Chip
-                      label="Finished"
-                      className={classes.end}
                       variant="outlined"
                     />
                   </Typography>
@@ -231,11 +180,11 @@ export default function History() {
               </Grid>
             </CardContent>
             <CardActions className={classes.end}>
-              <IconButton aria-label="add to favorites">
-                <PrintIcon />
-              </IconButton>
+              {/* <IconButton aria-label="add to favorites">
+                <PrintDisabledIcon />
+              </IconButton> */}
               <Button
-                variant="outlined"
+                variant="contained"
                 color="primary"
                 className={classes.button}
                 startIcon={<InfoIcon />}
@@ -262,7 +211,7 @@ export default function History() {
                     variant="none"
                   >
                     <Avatar variant="rounded" className={classes.rounded}>
-                      <EmojiTransportationIcon />
+                      <LocalTaxiIcon />
                     </Avatar>
                   </Badge>
                 </Grid>
@@ -281,15 +230,85 @@ export default function History() {
                   <Typography>
                     <strong>Booking Time : </strong>03:14 PM
                   </Typography>
+                  <Typography>
+                    <strong>Booking Amount : </strong>₹ 500
+                  </Typography>
                 </Grid>
               </Grid>
             </CardContent>
             <CardActions className={classes.end}>
-              <IconButton aria-label="add to favorites">
-                <PrintIcon />
-              </IconButton>
               <Button
                 variant="outlined"
+                color="primary"
+                className={classes.button}
+                startIcon={<PrintIcon />}
+              >
+                Receipt
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                startIcon={<InfoIcon />}
+              >
+                View Details
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card className={classes.cardItem}>
+            <CardContent className={classes}>
+              <Grid
+                container
+                spacing={0}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={2}>
+                  <Badge
+                    className={classes.online}
+                    color="secondary"
+                    variant="none"
+                  >
+                    <Avatar variant="rounded" className={classes.rounded}>
+                      <AirportShuttleIcon />
+                    </Avatar>
+                  </Badge>
+                </Grid>
+                <Grid item xs={10} className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    WB AD 0208
+                    <Chip
+                      label="Finished"
+                      className={classes.end}
+                      variant="outlined"
+                    />
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Date : </strong> May 25 2020
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Time : </strong>03:14 PM
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Amount : </strong>₹ 500
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions className={classes.end}>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                startIcon={<PrintIcon />}
+              >
+                Receipt
+              </Button>
+              <Button
+                variant="contained"
                 color="primary"
                 className={classes.button}
                 startIcon={<InfoIcon />}
