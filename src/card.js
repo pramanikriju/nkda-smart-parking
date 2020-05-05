@@ -13,6 +13,11 @@ import Badge from "@material-ui/core/Badge";
 import { Animated } from "react-animated-css";
 import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import { Wrapper } from "@material-ui/pickers/wrappers/Wrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -43,6 +48,10 @@ const useStyles = makeStyles({
     backgroundColor: "#3f51b5",
     color: "white",
   },
+  formControl: {
+    margin: 0,
+    minWidth: "100%",
+  },
 });
 
 function DefaultCard(props) {
@@ -52,6 +61,13 @@ function DefaultCard(props) {
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
   const [cancel, setCancel] = useState("Navigate");
+  const [car, setCar] = useState("");
+
+  const handleChangeCar = (event) => {
+    //event.preventDefault();
+    console.log(event.target.value);
+    setCar(event.target.value);
+  };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -102,24 +118,31 @@ function DefaultCard(props) {
                 isVisible={fading}
                 style={visible ? null : { display: "none" }}
               >
-                <TimePicker
-                  margin="normal"
-                  id="time-picker"
-                  label="Select booking time"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  fullWidth
-                  // InputProps={{
-                  //   endAdornment: (
-                  //     <IconButton onClick={() => handleDateChange(null)}>
-                  //       <ClearIcon />
-                  //     </IconButton>
-                  //   ),
-                  // }}
-                  // InputAdornmentProps={{
-                  //   position: "start",
-                  // }}
-                />
+                <div>
+                  <TimePicker
+                    margin="normal"
+                    id="time-picker"
+                    label="Select booking time"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    fullWidth
+                  />
+                  <FormControl className={classes.formControl}>
+                    <InputLabel id="demo-simple-select-label">
+                      Select Car
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={car}
+                      onChange={handleChangeCar}
+                    >
+                      <MenuItem value={10}>WB 23 AD 1354</MenuItem>
+                      <MenuItem value={20}>WB 56 DE 1312</MenuItem>
+                      <MenuItem value={30}>WB 46 DN 0208</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
               </Animated>
             </MuiPickersUtilsProvider>
           </Grid>
