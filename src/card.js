@@ -14,6 +14,7 @@ import Badge from "@material-ui/core/Badge";
 import { Animated } from "react-animated-css";
 import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles({
   root: {
@@ -105,6 +106,16 @@ export default function DefaultCard() {
                     value={selectedDate}
                     onChange={handleDateChange}
                     fullWidth
+                    // InputProps={{
+                    //   endAdornment: (
+                    //     <IconButton onClick={() => handleDateChange(null)}>
+                    //       <ClearIcon />
+                    //     </IconButton>
+                    //   ),
+                    // }}
+                    // InputAdornmentProps={{
+                    //   position: "start",
+                    // }}
                   />
                 </Animated>
               </MuiPickersUtilsProvider>
