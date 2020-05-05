@@ -90,7 +90,7 @@ function BookingDetails() {
     <div className="App">
       <Appbar id="appbar" />
 
-      <Map />
+      <Map center={[22.578564, 88.46249]} />
 
       <Card className={classes.cardItem}>
         <CardContent className={classes}>
