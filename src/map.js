@@ -27,9 +27,9 @@ const useStyles = makeStyles({
 });
 
 const garages = [
-  { lat: "22.578564", long: "88.46249", name: "Axis Mall" },
-  { lat: "22.578564", long: "88.46249", name: " Mall" },
-  { lat: "22.578564", long: "88.46249", name: "Axis Mall" },
+  { id: 1, lat: "22.578564", long: "88.46249", name: "Axis Mall" },
+  { id: 2, lat: "22.583260", long: "88.461419", name: "Action Area I" },
+  { id: 3, lat: "22.582965", long: "88.453372", name: "AD Block" },
 ];
 
 function Map(props) {
@@ -39,8 +39,15 @@ function Map(props) {
   const [center, setCenter] = useState([garages[0].lat, garages[0].long]);
 
   function changeCarousel(selectedIndex) {
-    console.log("Value", selectedIndex);
+    //console.log("Value", selectedIndex);
     setActive(selectedIndex);
+    setCenter([garages[selectedIndex].lat, garages[selectedIndex].long]);
+  }
+
+  function changeCenter(key) {
+    console.log("Value", key);
+    setActive(key);
+    setCenter([garages[key].lat, garages[key].long]);
   }
 
   return (
@@ -61,9 +68,15 @@ function Map(props) {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           //attribution="Distronix 2020"
         />
-        <Marker position={[22.578564, 88.46249]}>
-          <Popup>Popup for any custom information.</Popup>
-        </Marker>
+        {garages.map((item, key) => (
+          <Marker
+            position={[item.lat, item.long]}
+            onClick={() => changeCenter(key)}
+            key={item.id}
+          >
+            <Popup>{item.name}</Popup>
+          </Marker>
+        ))}
       </LeafletMap>
       <Card className={classes.root}>
         <Carousel
@@ -97,7 +110,7 @@ function Map(props) {
           ]}
           //infinite
           //keepDirectionWhenDragging
-          arrows
+          //arrows
         />
       </Card>
     </div>
