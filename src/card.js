@@ -19,17 +19,12 @@ const useStyles = makeStyles({
     //maxWidth: 345,
     flexGrow: 1,
     //margin: "1.1rem",
-    marginLeft: "1.3rem",
-    marginRight: "1.3rem",
-    position: "fixed",
-    bottom: "1.3rem",
+
     //left: "2rem",
     //alignContent: "center",
     zIndex: "1000",
     //minWidth: 345,
     height: "auto",
-    maxHeight: "500px",
-    transition: "max-height 1s ease-out",
   },
   fab: {
     //marginLeft: "auto !important",
@@ -50,7 +45,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function DefaultCard() {
+function DefaultCard(props) {
   const classes = useStyles();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -73,7 +68,7 @@ export default function DefaultCard() {
           <Grid item xs={2}></Grid>
           <Grid item xs={10}>
             <Typography gutterBottom variant="h5" component="h2">
-              Parking Bay 1
+              {props.garage.name}
             </Typography>
           </Grid>
         </Grid>
@@ -87,10 +82,11 @@ export default function DefaultCard() {
           </Grid>
           <Grid item xs={10}>
             <Typography variant="body2" color="textSecondary" component="p">
-              <strong>Bays Available : </strong>{" "}
+              <strong>Bays Available : </strong>
               <span color="secondary">4</span>
               <br />
-              Parking bay near Axis Mall. Rates starting from Rs. 10/HR
+              Parking bay near {props.garage.name}. Rates starting from Rs.
+              10/HR
             </Typography>
           </Grid>
           <Grid item xs={12}>
@@ -145,3 +141,5 @@ export default function DefaultCard() {
     </Card>
   );
 }
+
+export default DefaultCard;

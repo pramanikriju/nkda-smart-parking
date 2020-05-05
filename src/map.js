@@ -5,6 +5,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import Typography from "@material-ui/core/Typography";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import DefaultCard from "./card";
 
 const useStyles = makeStyles({
   root: {
@@ -21,9 +22,6 @@ const useStyles = makeStyles({
     minWidth: 345,
     width: "-webkit-fill-available",
   },
-  temp: {
-    zIndex: "9999",
-  },
 });
 
 const garages = [
@@ -32,7 +30,7 @@ const garages = [
   { id: 3, lat: "22.582965", long: "88.453372", name: "AD Block" },
 ];
 
-function Map(props) {
+function Map() {
   const classes = useStyles();
 
   const [active, setActive] = useState(0);
@@ -78,41 +76,20 @@ function Map(props) {
           </Marker>
         ))}
       </LeafletMap>
-      <Card className={classes.root}>
+      <div className={classes.root}>
         <Carousel
           value={active}
           onChange={changeCarousel}
           slides={[
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h2"
-              className={classes.temp}
-            >
-              Parking Bay 1
-            </Typography>,
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h2"
-              className={classes.temp}
-            >
-              Parking Bay 2
-            </Typography>,
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h2"
-              className={classes.temp}
-            >
-              Parking Bay 3
-            </Typography>,
+            <DefaultCard garage={garages[0]} />,
+            <DefaultCard garage={garages[1]} />,
+            <DefaultCard garage={garages[2]} />,
           ]}
           //infinite
           //keepDirectionWhenDragging
           //arrows
         />
-      </Card>
+      </div>
     </div>
   );
 }
