@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     paddingLeft: "1rem",
+    textAlign: "left",
   },
   online: {
     background: "#7FFF00",
@@ -124,7 +125,7 @@ function BookingDetails() {
                 <strong>Booking Date : </strong> May 25 2020
               </Typography>
               <Typography>
-                <strong>Booking Time : </strong>03:14 PM
+                <strong>Booking Time : </strong>03:14 PM - 4:00PM
               </Typography>
               <Typography>
                 <strong>Booking Amount : </strong>₹ 500

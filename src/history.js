@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     paddingLeft: "1rem",
+    float: "left",
   },
   online: {
     background: "#7FFF00",
@@ -86,7 +87,7 @@ export default function History() {
       >
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent className={classes}>
+            <CardContent>
               <Grid
                 container
                 spacing={0}
@@ -129,6 +130,7 @@ export default function History() {
                 <PrintDisabledIcon />
               </IconButton> */}
               <Button
+                href="/details"
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -141,7 +143,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent className={classes}>
+            <CardContent>
               <Grid
                 container
                 spacing={0}
@@ -184,6 +186,7 @@ export default function History() {
                 <PrintDisabledIcon />
               </IconButton> */}
               <Button
+                href="/details"
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -196,7 +199,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent className={classes}>
+            <CardContent>
               <Grid
                 container
                 spacing={0}
@@ -231,6 +234,9 @@ export default function History() {
                     <strong>Booking Time : </strong>03:14 PM
                   </Typography>
                   <Typography>
+                    <strong>Exit Time : </strong>04:14 PM
+                  </Typography>
+                  <Typography>
                     <strong>Booking Amount : </strong>₹ 500
                   </Typography>
                 </Grid>
@@ -246,6 +252,7 @@ export default function History() {
                 Receipt
               </Button>
               <Button
+                href="/details"
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -258,7 +265,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent className={classes}>
+            <CardContent>
               <Grid
                 container
                 spacing={0}
@@ -293,6 +300,9 @@ export default function History() {
                     <strong>Booking Time : </strong>03:14 PM
                   </Typography>
                   <Typography>
+                    <strong>Exit Time : </strong>04:14 PM
+                  </Typography>
+                  <Typography>
                     <strong>Booking Amount : </strong>₹ 500
                   </Typography>
                 </Grid>
@@ -308,6 +318,7 @@ export default function History() {
                 Receipt
               </Button>
               <Button
+                href="/details"
                 variant="contained"
                 color="primary"
                 className={classes.button}
