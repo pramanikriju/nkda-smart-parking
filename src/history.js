@@ -10,6 +10,12 @@ import Avatar from "@material-ui/core/Avatar";
 import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
+import CardActions from "@material-ui/core/CardActions";
+import IconButton from "@material-ui/core/IconButton";
+import PrintDisabledIcon from "@material-ui/icons/PrintDisabled";
+import CloseIcon from "@material-ui/icons/Close";
+import PrintIcon from "@material-ui/icons/Print";
+import InfoIcon from "@material-ui/icons/Info";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     // backgroundPosition: "center",
   },
   container: {
-    height: "100vh",
+    marginTop: "70px",
+    //minHeight: "auto",
   },
   card: {
     maxWidth: 345,
@@ -42,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 240,
   },
-  card: {
+  cardItem: {
     background: "#fff",
     width: "100%",
   },
@@ -72,12 +79,12 @@ export default function History() {
         className={classes.container}
         container
         direction="column"
-        justify="space-evenly"
+        justify="flex-start"
         alignItems="stretch"
-        spacing={1}
+        //spacing={1}
       >
         <Grid item>
-          <Card className={classes.card}>
+          <Card className={classes.cardItem}>
             <CardContent className={classes}>
               <Grid
                 container
@@ -115,6 +122,181 @@ export default function History() {
                 </Grid>
               </Grid>
             </CardContent>
+            <CardActions className={classes.end}>
+              <IconButton aria-label="add to favorites">
+                <PrintDisabledIcon />
+              </IconButton>
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={classes.button}
+                startIcon={<CloseIcon />}
+              >
+                End Booking
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card className={classes.cardItem}>
+            <CardContent className={classes}>
+              <Grid
+                container
+                spacing={0}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={2}>
+                  <Badge
+                    className={classes.online}
+                    color="secondary"
+                    variant="dot"
+                  >
+                    <Avatar variant="rounded" className={classes.rounded}>
+                      <EmojiTransportationIcon />
+                    </Avatar>
+                  </Badge>
+                </Grid>
+                <Grid item xs={10} className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    WB AD 0208
+                    <Chip
+                      className={classes.end}
+                      label="Ongoing"
+                      color="primary"
+                    />
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Date : </strong> May 25 2020
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Time : </strong>03:14 PM
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions className={classes.end}>
+              <IconButton aria-label="add to favorites">
+                <PrintDisabledIcon />
+              </IconButton>
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={classes.button}
+                startIcon={<CloseIcon />}
+              >
+                End Booking
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card className={classes.cardItem}>
+            <CardContent className={classes}>
+              <Grid
+                container
+                spacing={0}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={2}>
+                  <Badge
+                    className={classes.online}
+                    color="secondary"
+                    variant="none"
+                  >
+                    <Avatar variant="rounded" className={classes.rounded}>
+                      <EmojiTransportationIcon />
+                    </Avatar>
+                  </Badge>
+                </Grid>
+                <Grid item xs={10} className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    WB AD 0208
+                    <Chip
+                      label="Finished"
+                      className={classes.end}
+                      variant="outlined"
+                    />
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Date : </strong> May 25 2020
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Time : </strong>03:14 PM
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions className={classes.end}>
+              <IconButton aria-label="add to favorites">
+                <PrintIcon />
+              </IconButton>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                startIcon={<InfoIcon />}
+              >
+                View Details
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card className={classes.cardItem}>
+            <CardContent className={classes}>
+              <Grid
+                container
+                spacing={0}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={2}>
+                  <Badge
+                    className={classes.online}
+                    color="secondary"
+                    variant="none"
+                  >
+                    <Avatar variant="rounded" className={classes.rounded}>
+                      <EmojiTransportationIcon />
+                    </Avatar>
+                  </Badge>
+                </Grid>
+                <Grid item xs={10} className={classes.content}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    WB AD 0208
+                    <Chip
+                      label="Finished"
+                      className={classes.end}
+                      variant="outlined"
+                    />
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Date : </strong> May 25 2020
+                  </Typography>
+                  <Typography>
+                    <strong>Booking Time : </strong>03:14 PM
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions className={classes.end}>
+              <IconButton aria-label="add to favorites">
+                <PrintIcon />
+              </IconButton>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                startIcon={<InfoIcon />}
+              >
+                View Details
+              </Button>
+            </CardActions>
           </Card>
         </Grid>
       </Grid>
