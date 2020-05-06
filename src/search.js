@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     background: "rgb(255,255,255,0.8)",
     marginLeft: "1.3rem",
     marginRight: "1.3rem",
-    minWidth: "333px",
+    minWidth: "300px",
     maxWidth: "438px",
     width: "-webkit-fill-available",
   },

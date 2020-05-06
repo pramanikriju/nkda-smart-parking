@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     //left: "2rem",
     //alignContent: "center",
     zIndex: "1000",
-    minWidth: 345,
+    minWidth: 300,
     width: "-webkit-fill-available",
   },
 });
@@ -114,6 +114,7 @@ function Map() {
           value={active}
           onChange={changeCarousel}
           //offset={2}
+          minDraggableOffset={9999}
           slides={[
             <DefaultCard garage={garages[0]} />,
             <DefaultCard garage={garages[1]} />,

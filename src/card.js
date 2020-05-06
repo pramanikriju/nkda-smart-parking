@@ -22,8 +22,8 @@ const useStyles = makeStyles({
   root: {
     //maxWidth: 345,
     flexGrow: 1,
-    marginLeft: "2px",
-    marginRight: "2px",
+    //marginLeft: "2px",
+    //marginRight: "2px",
 
     //left: "2rem",
     //alignContent: "center",
