@@ -23,7 +23,8 @@ const useStyles = makeStyles({
   root: {
     //maxWidth: 345,
     flexGrow: 1,
-    //margin: "1.1rem",
+    marginLeft: "5px",
+    marginRight: "5px",
 
     //left: "2rem",
     //alignContent: "center",
@@ -65,6 +66,7 @@ function DefaultCard(props) {
 
   const handleChangeCar = (event) => {
     //event.preventDefault();
+    event.stopPropagation();
     console.log(event.target.value);
     setCar(event.target.value);
   };

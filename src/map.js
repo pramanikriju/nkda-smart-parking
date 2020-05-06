@@ -98,7 +98,7 @@ function Map() {
         <Carousel
           value={active}
           onChange={changeCarousel}
-          offset={2}
+          //offset={2}
           slides={[
             <DefaultCard garage={garages[0]} />,
             <DefaultCard garage={garages[1]} />,
