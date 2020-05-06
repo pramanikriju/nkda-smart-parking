@@ -261,6 +261,7 @@ export default function History() {
                 color="primary"
                 className={classes.button}
                 startIcon={<PrintIcon />}
+                href="/receipt"
               >
                 Receipt
               </Button>
@@ -330,6 +331,7 @@ export default function History() {
                 color="primary"
                 className={classes.button}
                 startIcon={<PrintIcon />}
+                href="/receipt"
               >
                 Receipt
               </Button>

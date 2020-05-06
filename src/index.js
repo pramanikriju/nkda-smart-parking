@@ -7,6 +7,7 @@ import Booking from "./booking";
 import History from "./history";
 import Vehicles from "./vehicles";
 import Create from "./create";
+import Receipt from "./receipt";
 import BookingDetails from "./BookingDetails";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -35,6 +36,9 @@ ReactDOM.render(
         </Route>
         <Route exact path="/create">
           <Create />
+        </Route>
+        <Route exact path="/receipt">
+          <Receipt />
         </Route>
       </Switch>
     </Router>

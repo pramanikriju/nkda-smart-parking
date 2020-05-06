@@ -149,6 +149,7 @@ function BookingDetails() {
             color="primary"
             className={classes.button}
             startIcon={<PrintIcon />}
+            href="/receipt"
           >
             Receipt
           </Button>
