@@ -17,17 +17,18 @@ import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
 import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import PrintIcon from "@material-ui/icons/Print";
 import InfoIcon from "@material-ui/icons/Info";
+import Image from "./img/bg.jpg"; // Import using relative path
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     minHeight: "100vh",
     //background: "linear-gradient(to top, #61dafb, #ffffff)",
-    background: "#f9f9f9",
+    //background: "#f9f9f9",
     padding: "16px",
-    //backgroundImage: `url(${Image})`,
-    // backgroundSize: "cover",
-    // backgroundPosition: "center",
+    backgroundImage: `url(${Image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   container: {
     marginTop: "60px",
@@ -109,7 +110,7 @@ export default function History() {
                   </Badge>
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography variant="h5" component="h2">
                     WB AD 0208
                     <Chip
                       className={classes.end}
@@ -118,6 +119,10 @@ export default function History() {
                       variant="outlined"
                     />
                   </Typography>
+                  <Typography gutterBottom variant="caption" component="div">
+                    Maruti Swift Dzire
+                  </Typography>
+
                   <Typography>
                     <strong>Booking Date : </strong> May 25 2020
                   </Typography>
@@ -165,7 +170,7 @@ export default function History() {
                   </Badge>
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography variant="h5" component="h2">
                     WB AD 0208
                     <Chip
                       className={classes.end}
@@ -173,6 +178,9 @@ export default function History() {
                       color="primary"
                       variant="outlined"
                     />
+                  </Typography>
+                  <Typography gutterBottom variant="caption" component="div">
+                    Bajaj Pulsar
                   </Typography>
                   <Typography>
                     <strong>Booking Date : </strong> May 25 2020
@@ -221,13 +229,16 @@ export default function History() {
                   </Badge>
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography variant="h5" component="h2">
                     WB AD 0208
                     <Chip
                       label="Finished"
                       className={classes.end}
                       variant="outlined"
                     />
+                  </Typography>
+                  <Typography gutterBottom variant="caption" component="div">
+                    Honda City
                   </Typography>
                   <Typography>
                     <strong>Booking Date : </strong> May 25 2020
@@ -287,13 +298,16 @@ export default function History() {
                   </Badge>
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography variant="h5" component="h2">
                     WB AD 0208
                     <Chip
                       label="Finished"
                       className={classes.end}
                       variant="outlined"
                     />
+                  </Typography>
+                  <Typography gutterBottom variant="caption" component="div">
+                    Hyundai i10
                   </Typography>
                   <Typography>
                     <strong>Booking Date : </strong> May 25 2020

@@ -35,7 +35,8 @@ const useStyles = makeStyles({
   fab: {
     //marginLeft: "auto !important",
     flexGrow: 1,
-    alignContent: "flex-end",
+    alignContent: "flex-start",
+    minWidth: "100%",
   },
   actions: {
     paddingLeft: "16px",
@@ -52,6 +53,10 @@ const useStyles = makeStyles({
   formControl: {
     margin: 0,
     minWidth: "100%",
+    alignContent: "left",
+  },
+  left: {
+    textAlign: "left",
   },
 });
 
@@ -129,7 +134,7 @@ function DefaultCard(props) {
                     onChange={handleDateChange}
                     fullWidth
                   />
-                  <FormControl className={classes.formControl}>
+                  <FormControl className={classes.fab}>
                     <InputLabel id="demo-simple-select-label">
                       Select Car
                     </InputLabel>
@@ -138,6 +143,7 @@ function DefaultCard(props) {
                       id="demo-simple-select"
                       value={car}
                       onChange={handleChangeCar}
+                      className={classes.left}
                     >
                       <MenuItem value={10}>WB 23 AD 1354</MenuItem>
                       <MenuItem value={20}>WB 56 DE 1312</MenuItem>

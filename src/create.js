@@ -26,20 +26,21 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     //flexGrow: 1,
     minHeight: "100vh",
     //background: "linear-gradient(to top, #61dafb, #ffffff)",
-    background: "#f9f9f9",
+    //background: "#f9f9f9",
     // backgroundImage: `url(${Image})`,
     // backgroundSize: "cover",
     // backgroundPosition: "center",
     padding: "16px",
-    //backgroundImage: `url(${Image})`,
-    // backgroundSize: "cover",
-    // backgroundPosition: "center",
+    backgroundImage: `url(${Image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   container: {
     marginTop: "60px",
@@ -156,24 +157,27 @@ export default function Create() {
                 />
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
-                <InputLabel
-                  id="demo-simple-select-label"
-                  className={classes.form}
-                >
-                  Type
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={type}
-                  onChange={handleChange}
-                  className={classes.form}
-                >
-                  <MenuItem value={10}>Car</MenuItem>
-                  <MenuItem value={20}>Bike</MenuItem>
-                  <MenuItem value={30}>Taxi</MenuItem>
-                  <MenuItem value={30}>Others</MenuItem>
-                </Select>
+                <FormControl>
+                  <InputLabel id="demo-simple-select-label">
+                    Select Vehicle Type
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    //label="Select Vehicle Type"
+                    id="demo-simple-select"
+                    value={type}
+                    onChange={handleChange}
+                    className={classes.form}
+                  >
+                    <MenuItem value="" disabled>
+                      Select Vehicle Type
+                    </MenuItem>
+                    <MenuItem value={10}>Car</MenuItem>
+                    <MenuItem value={20}>Bike</MenuItem>
+                    <MenuItem value={30}>Taxi</MenuItem>
+                    <MenuItem value={30}>Others</MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
             </Grid>
           </CardContent>
@@ -182,12 +186,13 @@ export default function Create() {
               variant="outlined"
               color="primary"
               className={classes.button}
+              href="/vehicles"
               startIcon={<ArrowBackIcon />}
             >
               Back
             </Button>
             <Button
-              href="/details"
+              href="/vehicles"
               variant="contained"
               color="primary"
               className={classes.button}

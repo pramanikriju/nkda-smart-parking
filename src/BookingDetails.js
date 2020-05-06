@@ -1,5 +1,5 @@
 import React from "react";
-import Map from "./map";
+import SingleMap from "././singleMap";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -18,6 +18,7 @@ import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
 import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import PrintIcon from "@material-ui/icons/Print";
 import InfoIcon from "@material-ui/icons/Info";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,7 +91,7 @@ function BookingDetails() {
     <div className="App">
       <Appbar id="appbar" />
 
-      <Map center={[22.578564, 88.46249]} />
+      <SingleMap center={[22.578564, 88.46249]} />
 
       <Card className={classes.cardItem}>
         <CardContent className={classes}>
@@ -134,6 +135,15 @@ function BookingDetails() {
           </Grid>
         </CardContent>
         <CardActions className={classes.end}>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            href="/history"
+            startIcon={<ArrowBackIcon />}
+          >
+            Back
+          </Button>
           <Button
             variant="outlined"
             color="primary"
