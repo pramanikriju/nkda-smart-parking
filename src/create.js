@@ -7,18 +7,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Appbar from "./appbar";
 import Avatar from "@material-ui/core/Avatar";
-import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
-import Chip from "@material-ui/core/Chip";
-import Badge from "@material-ui/core/Badge";
 import CardActions from "@material-ui/core/CardActions";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
-import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
-import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
-import MotorcycleIcon from "@material-ui/icons/Motorcycle";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import Image from "./img/bg.jpg"; // Import using relative path
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";

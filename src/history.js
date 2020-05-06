@@ -7,7 +7,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Appbar from "./appbar";
 import Avatar from "@material-ui/core/Avatar";
-import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
 import CardActions from "@material-ui/core/CardActions";

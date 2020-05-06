@@ -1,4 +1,4 @@
-import React, { useState, createRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Map as LeafletMap,
   TileLayer,
@@ -8,8 +8,7 @@ import {
 } from "react-leaflet";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
-import Typography from "@material-ui/core/Typography";
-import { Card } from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles";
 import DefaultCard from "./card";
 
@@ -56,8 +55,6 @@ const garages = [
 
 function Map() {
   const classes = useStyles();
-  const groupRef = createRef();
-  const mapRef = createRef();
 
   const [active, setActive] = useState(0);
   const [center, setCenter] = useState([22.580147, 88.459431]);

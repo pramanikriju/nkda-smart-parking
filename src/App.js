@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Map from "./map";
 import Search from "./search";
 import Appbar from "./appbar";
 import Grid from "@material-ui/core/Grid";
-import DefaultCard from "./card";
 
 const markers = [[22.578564, 88.46249], []];
 

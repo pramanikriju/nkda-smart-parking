@@ -1,34 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Appbar from "./appbar";
-import Avatar from "@material-ui/core/Avatar";
-import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
-import Chip from "@material-ui/core/Chip";
-import Badge from "@material-ui/core/Badge";
+
 import CardActions from "@material-ui/core/CardActions";
-import DriveEtaIcon from "@material-ui/icons/DriveEta";
-import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
-import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
-import MotorcycleIcon from "@material-ui/icons/Motorcycle";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
+
 import Image from "./img/bg.jpg"; // Import using relative path
 import Receipt from "./img/receipt.png"; // Import using relative path
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -104,11 +88,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Create() {
   const classes = useStyles();
-  const [type, setType] = useState("");
-
-  const handleChange = (event) => {
-    setType(event.target.value);
-  };
 
   return (
     <div className={classes.root}>
