@@ -1,7 +1,6 @@
 {
   "name": "leaflet-map-ui",
   "version": "0.1.0",
-  "homepage": "https://pramanikriju.github.io/nkda-smart-parking",
   "private": true,
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.13.41",
