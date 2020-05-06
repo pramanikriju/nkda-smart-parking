@@ -17,6 +17,7 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -176,17 +177,19 @@ export default function Create() {
               variant="outlined"
               color="primary"
               className={classes.button}
-              href="/vehicles"
+              to="/vehicles"
               startIcon={<ArrowBackIcon />}
+              component={Link}
             >
               Back
             </Button>
             <Button
-              href="/vehicles"
+              to="/vehicles"
               variant="contained"
               color="primary"
               className={classes.button}
               startIcon={<CheckIcon />}
+              component={Link}
             >
               Confirm
             </Button>

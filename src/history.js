@@ -17,6 +17,7 @@ import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import PrintIcon from "@material-ui/icons/Print";
 import InfoIcon from "@material-ui/icons/Info";
 import Image from "./img/bg.jpg"; // Import using relative path
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -136,7 +137,8 @@ export default function History() {
                 <PrintDisabledIcon />
               </IconButton> */}
               <Button
-                href="/details"
+                component={Link}
+                to="/details"
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -195,7 +197,8 @@ export default function History() {
                 <PrintDisabledIcon />
               </IconButton> */}
               <Button
-                href="/details"
+                to="/details"
+                component={Link}
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -260,12 +263,14 @@ export default function History() {
                 color="primary"
                 className={classes.button}
                 startIcon={<PrintIcon />}
-                href="/receipt"
+                to="/receipt"
+                component={Link}
               >
                 Receipt
               </Button>
               <Button
-                href="/details"
+                to="/details"
+                component={Link}
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -330,12 +335,14 @@ export default function History() {
                 color="primary"
                 className={classes.button}
                 startIcon={<PrintIcon />}
-                href="/receipt"
+                to="/receipt"
+                component={Link}
               >
                 Receipt
               </Button>
               <Button
-                href="/details"
+                to="/details"
+                component={Link}
                 variant="contained"
                 color="primary"
                 className={classes.button}

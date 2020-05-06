@@ -16,6 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -153,7 +154,8 @@ export default function Login() {
                     color="primary"
                     className={classes.link}
                     endIcon={<Icon>send</Icon>}
-                    href="/app"
+                    component={Link}
+                    to="/app"
                   >
                     Login
                   </Button>

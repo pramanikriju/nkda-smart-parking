@@ -15,6 +15,7 @@ import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
 
 import PrintIcon from "@material-ui/icons/Print";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +136,8 @@ function BookingDetails() {
             variant="outlined"
             color="primary"
             className={classes.button}
-            href="/history"
+            to="/history"
+            component={Link}
             startIcon={<ArrowBackIcon />}
           >
             Back
@@ -145,7 +147,8 @@ function BookingDetails() {
             color="primary"
             className={classes.button}
             startIcon={<PrintIcon />}
-            href="/receipt"
+            to="/receipt"
+            component={Link}
           >
             Receipt
           </Button>

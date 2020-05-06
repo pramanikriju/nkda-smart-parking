@@ -17,6 +17,7 @@ import Avatar from "@material-ui/core/Avatar";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import CommuteIcon from "@material-ui/icons/Commute";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   centered: {
@@ -129,19 +130,19 @@ export default function Appbar() {
         >
           <Grid item xs={12}>
             <List component="nav" aria-label="main mailbox folders">
-              <ListItemLink href="/app">
+              <ListItemLink component={Link} to="/app">
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
                 <ListItemText primary="New Booking" />
               </ListItemLink>
-              <ListItemLink href="/history">
+              <ListItemLink component={Link} to="/history">
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Booking history" />
               </ListItemLink>
-              <ListItemLink href="/vehicles">
+              <ListItemLink component={Link} to="/vehicles">
                 <ListItemIcon>
                   <CommuteIcon />
                 </ListItemIcon>
@@ -153,7 +154,7 @@ export default function Appbar() {
               <ListItem button>
                 <ListItemText primary="Feedback" />
               </ListItem>
-              <ListItemLink href="/">
+              <ListItemLink component={Link} to="/">
                 <ListItemText primary="Logout" />
               </ListItemLink>
             </List>

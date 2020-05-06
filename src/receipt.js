@@ -13,6 +13,7 @@ import Receipt from "./img/receipt.png"; // Import using relative path
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -118,7 +119,8 @@ export default function Create() {
               variant="outlined"
               color="primary"
               className={classes.button}
-              href="/history"
+              to="/history"
+              component={Link}
               startIcon={<ArrowBackIcon />}
             >
               Back

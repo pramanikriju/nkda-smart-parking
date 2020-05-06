@@ -17,6 +17,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Image from "./img/bg.jpg"; // Import using relative path
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -150,7 +151,7 @@ export default function Vehicles() {
                 Edit
               </Button>
               <Button
-                href="/details"
+                //to="/details"
                 variant="contained"
                 color="secondary"
                 className={classes.button}
@@ -216,7 +217,7 @@ export default function Vehicles() {
                 Edit
               </Button>
               <Button
-                href="/details"
+                //href="/details"
                 variant="contained"
                 color="secondary"
                 className={classes.button}
@@ -231,7 +232,8 @@ export default function Vehicles() {
           color="primary"
           aria-label="add"
           className={classes.fab}
-          href="/create"
+          to="/create"
+          component={Link}
         >
           <AddIcon />
         </Fab>
