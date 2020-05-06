@@ -24,12 +24,12 @@ const useStyles = makeStyles({
     flexGrow: 1,
     //marginLeft: "2px",
     //marginRight: "2px",
-
     //left: "2rem",
     //alignContent: "center",
     zIndex: "1000",
     //minWidth: 345,
     height: "auto",
+    //maxWidth: 438
   },
   fab: {
     //marginLeft: "auto !important",
@@ -56,6 +56,7 @@ const useStyles = makeStyles({
   },
   left: {
     textAlign: "left",
+    minWidth: "100%",
   },
 });
 
@@ -133,22 +134,25 @@ function DefaultCard(props) {
                     onChange={handleDateChange}
                     fullWidth
                   />
-                  <FormControl className={classes.fab}>
-                    <InputLabel id="demo-simple-select-label">
-                      Select Car
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={car}
-                      onChange={handleChangeCar}
-                      className={classes.left}
-                    >
-                      <MenuItem value={10}>WB 23 AD 1354</MenuItem>
-                      <MenuItem value={20}>WB 56 DE 1312</MenuItem>
-                      <MenuItem value={30}>WB 46 DN 0208</MenuItem>
-                    </Select>
-                  </FormControl>
+                  {/* <FormControl className={classes.fab}> */}
+                  <InputLabel
+                    id="demo-simple-select-label"
+                    className={classes.left}
+                  >
+                    Select Car
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={car}
+                    onChange={handleChangeCar}
+                    className={classes.left}
+                  >
+                    <MenuItem value={10}>WB 23 AD 1354</MenuItem>
+                    <MenuItem value={20}>WB 56 DE 1312</MenuItem>
+                    <MenuItem value={30}>WB 46 DN 0208</MenuItem>
+                  </Select>
+                  {/* </FormControl> */}
                 </div>
               </Animated>
             </MuiPickersUtilsProvider>

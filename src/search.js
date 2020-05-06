@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1.3rem",
     marginRight: "1.3rem",
     minWidth: "300px",
-    maxWidth: "438px",
+    maxWidth: "512px",
     width: "-webkit-fill-available",
   },
 }));
