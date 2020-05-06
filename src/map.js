@@ -140,7 +140,10 @@ function Map() {
                 onClick={() => changeCenter(key)}
                 key={item.id}
               >
-                <Popup>{item.name}</Popup>
+                <Popup>
+                  {item.name} - <br />
+                  <strong>Bays Available : </strong> {item.available}
+                </Popup>
               </Marker>
             ))}
           </FeatureGroup>

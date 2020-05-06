@@ -17,7 +17,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import Expansion from "./expansion";
 const useStyles = makeStyles({
   root: {
     //maxWidth: 345,
@@ -137,7 +137,7 @@ function DefaultCard(props) {
                   {/* <FormControl className={classes.fab}> */}
                   <InputLabel
                     id="demo-simple-select-label"
-                    className={classes.left}
+                    //className={classes.left}
                   >
                     Select Car
                   </InputLabel>
@@ -161,18 +161,9 @@ function DefaultCard(props) {
       </CardContent>
       <CardActions className={classes.actions}>
         <Grid container>
+          <Grid item xs={6}></Grid>
           <Grid item xs={6}>
-            <Button
-              //size="small"
-              color="secondary"
-              //marginleft={100}
-              onClick={showTime}
-            >
-              {cancel}
-            </Button>
-          </Grid>
-          <Grid item xs={6}>
-            <Button
+            {/* <Button
               variant="outlined"
               color="primary"
               className={classes.fab}
@@ -181,12 +172,11 @@ function DefaultCard(props) {
               //href="/booking"
             >
               Book now
-            </Button>
+            </Button> */}
           </Grid>
-
-          {/* <Fab color="primary" aria-label="add" className={classes.fab}>
-          <AddIcon />
-        </Fab> */}
+          <Grid item xs={12}>
+            <Expansion />
+          </Grid>
         </Grid>
       </CardActions>
     </Card>
