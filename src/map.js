@@ -1,5 +1,11 @@
-import React, { useState } from "react";
-import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState, createRef, useEffect } from "react";
+import {
+  Map as LeafletMap,
+  TileLayer,
+  Marker,
+  Popup,
+  FeatureGroup,
+} from "react-leaflet";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import Typography from "@material-ui/core/Typography";
@@ -50,9 +56,11 @@ const garages = [
 
 function Map() {
   const classes = useStyles();
+  const groupRef = createRef();
+  const mapRef = createRef();
 
   const [active, setActive] = useState(0);
-  const [center, setCenter] = useState([garages[0].lat, garages[0].long]);
+  const [center, setCenter] = useState([22.580147, 88.459431]);
 
   function changeCarousel(selectedIndex) {
     //console.log("Value", selectedIndex);
@@ -65,6 +73,13 @@ function Map() {
     setActive(key);
     setCenter([garages[key].lat, garages[key].long]);
   }
+
+  useEffect(() => {
+    // const map = mapRef.current.leafletElement; //get native Map instance
+    // console.log("group", groupRef);
+    //const group = groupRef.current.leafletElement; //get native featureGroup instance
+    //map.fitBounds(group.getBounds());
+  }, []);
 
   return (
     <div>
@@ -79,20 +94,23 @@ function Map() {
         dragging={true}
         animate={true}
         easeLinearity={0.35}
+        //ref={mapRef}
       >
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           //attribution="Distronix 2020"
         />
-        {garages.map((item, key) => (
-          <Marker
-            position={[item.lat, item.long]}
-            onClick={() => changeCenter(key)}
-            key={item.id}
-          >
-            <Popup>{item.name}</Popup>
-          </Marker>
-        ))}
+        <FeatureGroup>
+          {garages.map((item, key) => (
+            <Marker
+              position={[item.lat, item.long]}
+              onClick={() => changeCenter(key)}
+              key={item.id}
+            >
+              <Popup>{item.name}</Popup>
+            </Marker>
+          ))}
+        </FeatureGroup>
       </LeafletMap>
       <div className={classes.root}>
         <Carousel

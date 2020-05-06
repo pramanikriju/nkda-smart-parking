@@ -23,8 +23,8 @@ const useStyles = makeStyles({
   root: {
     //maxWidth: 345,
     flexGrow: 1,
-    marginLeft: "5px",
-    marginRight: "5px",
+    marginLeft: "2px",
+    marginRight: "2px",
 
     //left: "2rem",
     //alignContent: "center",
@@ -151,27 +151,34 @@ function DefaultCard(props) {
         </Grid>
       </CardContent>
       <CardActions className={classes.actions}>
-        <Button
-          size="small"
-          color="secondary"
-          marginleft={100}
-          onClick={showTime}
-        >
-          {cancel}
-        </Button>
-        {/* <Fab color="primary" aria-label="add" className={classes.fab}>
+        <Grid container>
+          <Grid item xs={6}>
+            <Button
+              //size="small"
+              color="secondary"
+              //marginleft={100}
+              onClick={showTime}
+            >
+              {cancel}
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.fab}
+              endIcon={<Icon>send</Icon>}
+              onClick={showTime}
+              //href="/booking"
+            >
+              Book now
+            </Button>
+          </Grid>
+
+          {/* <Fab color="primary" aria-label="add" className={classes.fab}>
           <AddIcon />
         </Fab> */}
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.fab}
-          endIcon={<Icon>send</Icon>}
-          onClick={showTime}
-          //href="/booking"
-        >
-          Book now
-        </Button>
+        </Grid>
       </CardActions>
     </Card>
   );

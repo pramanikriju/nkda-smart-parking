@@ -15,15 +15,21 @@ import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
 import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
 import MotorcycleIcon from "@material-ui/icons/Motorcycle";
-import PrintIcon from "@material-ui/icons/Print";
-import InfoIcon from "@material-ui/icons/Info";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import Image from "./img/bg.jpg"; // Import using relative path
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    //flexGrow: 1,
     minHeight: "100vh",
     //background: "linear-gradient(to top, #61dafb, #ffffff)",
     background: "#f9f9f9",
+    // backgroundImage: `url(${Image})`,
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
     padding: "16px",
     //backgroundImage: `url(${Image})`,
     // backgroundSize: "cover",
@@ -70,9 +76,14 @@ const useStyles = makeStyles((theme) => ({
   end: {
     float: "right",
   },
+  fab: {
+    position: "fixed",
+    bottom: "1.3rem",
+    right: "1.3rem",
+  },
 }));
 
-export default function History() {
+export default function Vehicles() {
   const classes = useStyles();
 
   return (
@@ -101,118 +112,6 @@ export default function History() {
                   <Badge
                     className={classes.online}
                     color="secondary"
-                    variant="dot"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <DriveEtaIcon />
-                    </Avatar>
-                  </Badge>
-                </Grid>
-                <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    WB AD 0208
-                    <Chip
-                      className={classes.end}
-                      label="Ongoing"
-                      color="primary"
-                      variant="outlined"
-                    />
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Date : </strong> May 25 2020
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Time : </strong>03:14 PM
-                  </Typography>
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions className={classes.end}>
-              {/* <IconButton aria-label="add to favorites">
-                <PrintDisabledIcon />
-              </IconButton> */}
-              <Button
-                href="/details"
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                startIcon={<InfoIcon />}
-              >
-                View Details
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item>
-          <Card className={classes.cardItem}>
-            <CardContent>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={2}>
-                  <Badge
-                    className={classes.online}
-                    color="secondary"
-                    variant="dot"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <MotorcycleIcon />
-                    </Avatar>
-                  </Badge>
-                </Grid>
-                <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    WB AD 0208
-                    <Chip
-                      className={classes.end}
-                      label="Ongoing"
-                      color="primary"
-                      variant="outlined"
-                    />
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Date : </strong> May 25 2020
-                  </Typography>
-                  <Typography>
-                    <strong>Booking Time : </strong>03:14 PM
-                  </Typography>
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions className={classes.end}>
-              {/* <IconButton aria-label="add to favorites">
-                <PrintDisabledIcon />
-              </IconButton> */}
-              <Button
-                href="/details"
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                startIcon={<InfoIcon />}
-              >
-                View Details
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item>
-          <Card className={classes.cardItem}>
-            <CardContent>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={2}>
-                  <Badge
-                    className={classes.online}
-                    color="secondary"
                     variant="none"
                   >
                     <Avatar variant="rounded" className={classes.rounded}>
@@ -224,23 +123,23 @@ export default function History() {
                   <Typography gutterBottom variant="h5" component="h2">
                     WB AD 0208
                     <Chip
-                      label="Finished"
+                      label="Car"
                       className={classes.end}
                       variant="outlined"
                     />
                   </Typography>
                   <Typography>
-                    <strong>Booking Date : </strong> May 25 2020
+                    <strong>Make : </strong> Honda
                   </Typography>
                   <Typography>
-                    <strong>Booking Time : </strong>03:14 PM
+                    <strong>Model : </strong>Civic
                   </Typography>
                   <Typography>
-                    <strong>Exit Time : </strong>04:14 PM
+                    <strong>Registration Date : </strong> 02 Feb 2020
                   </Typography>
-                  <Typography>
+                  {/* <Typography>
                     <strong>Booking Amount : </strong>₹ 500
-                  </Typography>
+                  </Typography> */}
                 </Grid>
               </Grid>
             </CardContent>
@@ -249,18 +148,18 @@ export default function History() {
                 variant="outlined"
                 color="primary"
                 className={classes.button}
-                startIcon={<PrintIcon />}
+                startIcon={<EditIcon />}
               >
-                Receipt
+                Edit
               </Button>
               <Button
                 href="/details"
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.button}
-                startIcon={<InfoIcon />}
+                startIcon={<DeleteIcon />}
               >
-                View Details
+                Delete
               </Button>
             </CardActions>
           </Card>
@@ -282,31 +181,31 @@ export default function History() {
                     variant="none"
                   >
                     <Avatar variant="rounded" className={classes.rounded}>
-                      <AirportShuttleIcon />
+                      <MotorcycleIcon />
                     </Avatar>
                   </Badge>
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    WB AD 0208
+                    WB BE 1512
                     <Chip
-                      label="Finished"
+                      label="Bike"
                       className={classes.end}
                       variant="outlined"
                     />
                   </Typography>
                   <Typography>
-                    <strong>Booking Date : </strong> May 25 2020
+                    <strong>Make : </strong> Bajaj
                   </Typography>
                   <Typography>
-                    <strong>Booking Time : </strong>03:14 PM
+                    <strong>Model : </strong> Pulsar
                   </Typography>
                   <Typography>
-                    <strong>Exit Time : </strong>04:14 PM
+                    <strong>Registration Date : </strong> 9 Mar 2020
                   </Typography>
-                  <Typography>
+                  {/* <Typography>
                     <strong>Booking Amount : </strong>₹ 500
-                  </Typography>
+                  </Typography> */}
                 </Grid>
               </Grid>
             </CardContent>
@@ -315,22 +214,30 @@ export default function History() {
                 variant="outlined"
                 color="primary"
                 className={classes.button}
-                startIcon={<PrintIcon />}
+                startIcon={<EditIcon />}
               >
-                Receipt
+                Edit
               </Button>
               <Button
                 href="/details"
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.button}
-                startIcon={<InfoIcon />}
+                startIcon={<DeleteIcon />}
               >
-                View Details
+                Delete
               </Button>
             </CardActions>
           </Card>
         </Grid>
+        <Fab
+          color="primary"
+          aria-label="add"
+          className={classes.fab}
+          href="/create"
+        >
+          <AddIcon />
+        </Fab>
       </Grid>
     </div>
   );

@@ -141,12 +141,12 @@ export default function Appbar() {
                 </ListItemIcon>
                 <ListItemText primary="Booking history" />
               </ListItemLink>
-              <ListItem button>
+              <ListItemLink href="/vehicles">
                 <ListItemIcon>
                   <CommuteIcon />
                 </ListItemIcon>
                 <ListItemText primary="Vehicles" />
-              </ListItem>
+              </ListItemLink>
             </List>
             <Divider />
             <List component="nav" aria-label="secondary mailbox folders">

@@ -5,6 +5,8 @@ import App from "./App";
 import Login from "./login";
 import Booking from "./booking";
 import History from "./history";
+import Vehicles from "./vehicles";
+import Create from "./create";
 import BookingDetails from "./BookingDetails";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -27,6 +29,12 @@ ReactDOM.render(
         </Route>
         <Route exact path="/">
           <Login />
+        </Route>
+        <Route exact path="/vehicles">
+          <Vehicles />
+        </Route>
+        <Route exact path="/create">
+          <Create />
         </Route>
       </Switch>
     </Router>
