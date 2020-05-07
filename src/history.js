@@ -22,6 +22,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import HistoryIcon from "@material-ui/icons/History";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,16 +134,16 @@ export default function History() {
         </Grid>
         <Grid item>
           <ButtonGroup
-            size="large"
+            //size="large"
             variant="contained"
             color="primary"
             fullWidth
             aria-label="large outlined primary button group"
             className={classes.search}
           >
-            <Button>Ongoing</Button>
-            <Button>Historical</Button>
-            {/* <Button>Paid</Button> */}
+            <Button startIcon={<AccessTimeIcon />}>Ongoing</Button>
+            <Button startIcon={<HistoryIcon />}>Historical</Button>
+            <Button startIcon={<ClearIcon />}>Reset</Button>
           </ButtonGroup>
         </Grid>
         <Grid item>
