@@ -18,6 +18,9 @@ import PrintIcon from "@material-ui/icons/Print";
 import InfoIcon from "@material-ui/icons/Info";
 import Image from "./img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search";
+import TextField from "@material-ui/core/TextField";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   container: {
-    marginTop: "60px",
+    paddingTop: "50px",
     //minHeight: "auto",
   },
   card: {
@@ -71,6 +74,19 @@ const useStyles = makeStyles((theme) => ({
   end: {
     float: "right",
   },
+  searchItem: {
+    background: "none",
+  },
+  search: {
+    flexGrow: 1,
+    background: "rgb(255,255,255,0.9)",
+    //marginLeft: "1.3rem",
+    //marginRight: "1.3rem",
+    minWidth: "300px",
+    maxWidth: "512px",
+    width: "-webkit-fill-available",
+    marginBottom: "1.3rem",
+  },
 }));
 
 export default function History() {
@@ -88,6 +104,24 @@ export default function History() {
         alignItems="stretch"
         spacing={0}
       >
+        <Grid item>
+          <TextField
+            className={classes.search}
+            id="input-with-icon-textfield"
+            //label="TextField"
+            variant="outlined"
+            placeholder="Search Bookings"
+            margin="normal"
+            //fullWidth
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
             <CardContent>
