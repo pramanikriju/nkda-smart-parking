@@ -6,12 +6,16 @@ import {
   Popup,
   FeatureGroup,
 } from "react-leaflet";
+import L from "leaflet";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { makeStyles } from "@material-ui/core/styles";
 import DefaultCard from "./card";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
+import redMarker from "./img/red-marker.svg";
+import greenMarker from "./img/green-marker.svg";
+import orangeMarker from "./img/orange-marker.svg";
 
 const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/garages";
 
@@ -35,6 +39,41 @@ const useStyles = makeStyles({
     marginTop: "50%",
   },
 });
+
+export const redIcon = new L.Icon({
+  iconUrl: redMarker,
+  iconRetinaUrl: redMarker,
+  iconAnchor: [15, 55],
+  popupAnchor: [5, -57],
+  iconSize: [40, 40],
+});
+export const greenIcon = new L.Icon({
+  iconUrl: greenMarker,
+  iconRetinaUrl: greenMarker,
+  iconAnchor: [15, 55],
+  popupAnchor: [5, -57],
+  iconSize: [40, 40],
+});
+export const orangeIcon = new L.Icon({
+  iconUrl: orangeMarker,
+  iconRetinaUrl: orangeMarker,
+  iconAnchor: [15, 55],
+  popupAnchor: [5, -57],
+  iconSize: [40, 40],
+});
+
+function renderSwitch(param) {
+  switch (param) {
+    case "1":
+      return greenIcon;
+    case "2":
+      return redIcon;
+    case "3":
+      return orangeIcon;
+    default:
+      return greenIcon;
+  }
+}
 
 const garagesBackup = [
   {
@@ -141,6 +180,8 @@ function Map() {
                 position={[item.lat, item.long]}
                 onClick={() => changeCenter(key)}
                 key={item.id}
+                icon={renderSwitch(item.id)}
+                //icon={redIcon}
               >
                 <Popup>
                   {item.name} - <br />
