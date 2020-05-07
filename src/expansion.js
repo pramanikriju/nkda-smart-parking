@@ -16,6 +16,7 @@ import FormControl from "@material-ui/core/FormControl";
 import moment from "moment";
 import ClearIcon from "@material-ui/icons/Clear";
 import NavigationIcon from "@material-ui/icons/Navigation";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -172,10 +173,10 @@ export default function Expansion() {
                 color="primary"
                 className={classes.fab}
                 endIcon={<Icon>send</Icon>}
-                //onClick={showTime}
-                //href="/booking"
+                component={Link}
+                to="/history"
               >
-                Book now
+                Confirm
               </Button>
             </Grid>
           </Grid>

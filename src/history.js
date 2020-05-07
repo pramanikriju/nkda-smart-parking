@@ -190,6 +190,12 @@ export default function History() {
                   <Typography>
                     <strong>Booking Time : </strong>03:14 PM
                   </Typography>
+                  <Typography>
+                    <strong>OTP : </strong>
+                    <Typography component="span" color="secondary">
+                      5963
+                    </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </CardContent>
@@ -249,6 +255,12 @@ export default function History() {
                   </Typography>
                   <Typography>
                     <strong>Booking Time : </strong>03:14 PM
+                  </Typography>
+                  <Typography>
+                    <strong>OTP : </strong>
+                    <Typography component="span" color="secondary">
+                      6356
+                    </Typography>
                   </Typography>
                 </Grid>
               </Grid>
