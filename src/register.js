@@ -16,6 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
+import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -97,11 +98,11 @@ export default function Login() {
                     // className={clsx(classes.margin, classes.textField)}
                   >
                     <InputLabel htmlFor="standard-adornment-password">
-                      Username
+                      Email
                     </InputLabel>
                     <Input
                       id="standard-adornment-password"
-                      type="text"
+                      type="email"
                       //value={values.text}
                       onChange={handleChange("password")}
                       variant="outlined"
@@ -111,6 +112,31 @@ export default function Login() {
                           style={{ padding: "12px" }}
                         >
                           <AccountCircle />
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl
+                    className={classes.password}
+                    // className={clsx(classes.margin, classes.textField)}
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
+                      Phone
+                    </InputLabel>
+                    <Input
+                      id="standard-adornment-password"
+                      type="number"
+                      //value={values.text}
+                      onChange={handleChange("password")}
+                      variant="outlined"
+                      endAdornment={
+                        <InputAdornment
+                          position="end"
+                          style={{ padding: "12px" }}
+                        >
+                          <PhoneIcon />
                         </InputAdornment>
                       }
                     />
@@ -149,15 +175,47 @@ export default function Login() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12}>
+                  <FormControl
+                    className={classes.password}
+                    // className={clsx(classes.margin, classes.textField)}
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
+                      Confirm Password
+                    </InputLabel>
+                    <Input
+                      //id="standard-adornment-password"
+                      type={values.showPassword ? "text" : "password"}
+                      //value={values.password}
+                      onChange={handleChange("password")}
+                      variant="outlined"
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                          >
+                            {values.showPassword ? (
+                              <Visibility />
+                            ) : (
+                              <VisibilityOff />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
                   <Button
                     variant="contained"
                     color="primary"
                     className={classes.link}
                     endIcon={<Icon>send</Icon>}
                     component={Link}
-                    to="/app"
+                    to="/create"
                   >
-                    Login
+                    Register
                   </Button>
                 </Grid>
                 <Grid item xs={12}>
@@ -166,9 +224,9 @@ export default function Login() {
                     color="secondary"
                     //className={classes.link}
                     component={Link}
-                    to="/register"
+                    to="/"
                   >
-                    Don't have an account? Register here
+                    Already have an account? Login here
                   </Button>
                 </Grid>
               </Grid>
