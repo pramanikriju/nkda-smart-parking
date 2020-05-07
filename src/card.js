@@ -103,46 +103,6 @@ function DefaultCard(props) {
               10/HR
             </Typography>
           </Grid>
-          <Grid item xs={12}>
-            <MuiPickersUtilsProvider utils={MomentUtils}>
-              <Animated
-                animationIn="zoomIn"
-                animationOut="zoomOut"
-                //isVisible={fading}
-                //style={visible ? null : { display: "none" }}
-              >
-                <div>
-                  <TimePicker
-                    margin="normal"
-                    id="time-picker"
-                    label="Select booking time"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    fullWidth
-                  />
-                  {/* <FormControl className={classes.fab}> */}
-                  <InputLabel
-                    id="demo-simple-select-label"
-                    //className={classes.left}
-                  >
-                    Select Car
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={car}
-                    onChange={handleChangeCar}
-                    className={classes.left}
-                  >
-                    <MenuItem value={10}>WB 23 AD 1354</MenuItem>
-                    <MenuItem value={20}>WB 56 DE 1312</MenuItem>
-                    <MenuItem value={30}>WB 46 DN 0208</MenuItem>
-                  </Select>
-                  {/* </FormControl> */}
-                </div>
-              </Animated>
-            </MuiPickersUtilsProvider>
-          </Grid>
         </Grid>
       </CardContent>
       <CardActions className={classes.actions}>
