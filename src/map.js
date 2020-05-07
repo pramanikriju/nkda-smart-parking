@@ -11,7 +11,6 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import { makeStyles } from "@material-ui/core/styles";
 import DefaultCard from "./card";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { date } from "date-fns/locale";
 import Grid from "@material-ui/core/Grid";
 
 const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/garages";

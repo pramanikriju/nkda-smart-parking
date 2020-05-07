@@ -128,21 +128,21 @@ export default function Create() {
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
                 <TextField
-                  id="standard-basic"
+                  id="standard-basic-1"
                   label="Vehicle Make"
                   className={classes.form}
                 />
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
                 <TextField
-                  id="standard-basic"
+                  id="standard-basic-2"
                   label="Vehicle Model"
                   className={classes.form}
                 />
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
                 <TextField
-                  id="standard-basic"
+                  id="standard-basic-3"
                   label="Registration Number"
                   className={classes.form}
                 />

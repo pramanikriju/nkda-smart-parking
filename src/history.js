@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,13 +80,16 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     flexGrow: 1,
-    background: "rgb(255,255,255,0.9)",
+    //background: "rgb(255,255,255,0.8)",
     //marginLeft: "1.3rem",
     //marginRight: "1.3rem",
     minWidth: "300px",
     maxWidth: "512px",
     width: "-webkit-fill-available",
     marginBottom: "1.3rem",
+  },
+  cssOutlinedInput: {
+    background: "rgb(255,255,255,0.8)",
   },
 }));
 
@@ -119,8 +123,25 @@ export default function History() {
                   <SearchIcon />
                 </InputAdornment>
               ),
+              classes: {
+                root: classes.cssOutlinedInput,
+              },
             }}
           />
+        </Grid>
+        <Grid item>
+          <ButtonGroup
+            size="large"
+            variant="contained"
+            color="primary"
+            fullWidth
+            aria-label="large outlined primary button group"
+            className={classes.search}
+          >
+            <Button>Ongoing</Button>
+            <Button>Historical</Button>
+            {/* <Button>Paid</Button> */}
+          </ButtonGroup>
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
@@ -254,15 +275,15 @@ export default function History() {
                 alignItems="center"
               >
                 <Grid item xs={2}>
-                  <Badge
+                  {/* <Badge
                     className={classes.online}
                     color="secondary"
                     variant="none"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <LocalTaxiIcon />
-                    </Avatar>
-                  </Badge>
+                  > */}
+                  <Avatar variant="rounded" className={classes.rounded}>
+                    <LocalTaxiIcon />
+                  </Avatar>
+                  {/* </Badge> */}
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
                   <Typography variant="h5" component="h2">
@@ -326,15 +347,15 @@ export default function History() {
                 alignItems="center"
               >
                 <Grid item xs={2}>
-                  <Badge
+                  {/* <Badge
                     className={classes.online}
                     color="secondary"
                     variant="none"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <AirportShuttleIcon />
-                    </Avatar>
-                  </Badge>
+                  > */}
+                  <Avatar variant="rounded" className={classes.rounded}>
+                    <AirportShuttleIcon />
+                  </Avatar>
+                  {/* </Badge> */}
                 </Grid>
                 <Grid item xs={10} className={classes.content}>
                   <Typography variant="h5" component="h2">

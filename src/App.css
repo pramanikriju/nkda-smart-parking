@@ -44,3 +44,6 @@
 Link {
   text-decoration: none;
 }
+.MuiOutlinedInput-root {
+  background: "rgb(255,255,255,0.8)";
+}

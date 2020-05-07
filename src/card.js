@@ -3,9 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
 import Avatar from "@material-ui/core/Avatar";
 import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Grid from "@material-ui/core/Grid";
@@ -13,7 +11,6 @@ import Badge from "@material-ui/core/Badge";
 import { Animated } from "react-animated-css";
 import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
-import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -64,9 +61,7 @@ function DefaultCard(props) {
   const classes = useStyles();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [visible, setVisible] = useState(false);
-  const [fading, setFading] = useState(false);
-  const [cancel, setCancel] = useState("Navigate");
+
   const [car, setCar] = useState("");
 
   const handleChangeCar = (event) => {
@@ -79,15 +74,6 @@ function DefaultCard(props) {
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-
-  function showTime() {
-    setFading(!fading);
-    //setVisible(!visible);
-    setTimeout(() => setVisible(!visible), 200);
-    !visible
-      ? setTimeout(() => setCancel("Cancel"), 300)
-      : setCancel("Navigate");
-  }
 
   return (
     <Card className={classes.root}>
@@ -122,8 +108,8 @@ function DefaultCard(props) {
               <Animated
                 animationIn="zoomIn"
                 animationOut="zoomOut"
-                isVisible={fading}
-                style={visible ? null : { display: "none" }}
+                //isVisible={fading}
+                //style={visible ? null : { display: "none" }}
               >
                 <div>
                   <TimePicker
