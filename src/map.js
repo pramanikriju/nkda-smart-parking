@@ -40,26 +40,30 @@ const useStyles = makeStyles({
   },
 });
 
+const iconAnchor = [15, 55];
+const popupAnchor = [5, -57];
+const iconSize = [45, 45];
+
 export const redIcon = new L.Icon({
   iconUrl: redMarker,
   iconRetinaUrl: redMarker,
-  iconAnchor: [15, 55],
-  popupAnchor: [5, -57],
-  iconSize: [40, 40],
+  iconAnchor: iconAnchor,
+  popupAnchor: popupAnchor,
+  iconSize: iconSize,
 });
 export const greenIcon = new L.Icon({
   iconUrl: greenMarker,
   iconRetinaUrl: greenMarker,
-  iconAnchor: [15, 55],
-  popupAnchor: [5, -57],
-  iconSize: [40, 40],
+  iconAnchor: iconAnchor,
+  popupAnchor: popupAnchor,
+  iconSize: iconSize,
 });
 export const orangeIcon = new L.Icon({
   iconUrl: orangeMarker,
   iconRetinaUrl: orangeMarker,
-  iconAnchor: [15, 55],
-  popupAnchor: [5, -57],
-  iconSize: [40, 40],
+  iconAnchor: iconAnchor,
+  popupAnchor: popupAnchor,
+  iconSize: iconSize,
 });
 
 function renderSwitch(param) {

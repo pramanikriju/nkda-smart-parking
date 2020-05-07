@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     //left: "2rem",
     zIndex: "1000",
-    minWidth: 345,
+    minWidth: 300,
     background: "rgb(255,255,255,0.8)",
   },
   password: {
@@ -86,13 +86,16 @@ const useStyles = makeStyles((theme) => ({
     //background: "rgb(255,255,255,0.8)",
     //marginLeft: "1.3rem",
     //marginRight: "1.3rem",
-    minWidth: "300px",
-    maxWidth: "512px",
+    //minWidth: "300px",
+    maxWidth: "-webkit-fill-available",
     width: "-webkit-fill-available",
     marginBottom: "1.3rem",
   },
   cssOutlinedInput: {
     background: "rgb(255,255,255,0.8)",
+  },
+  limitWidth: {
+    maxWidth: "-webkit-fill-available",
   },
 }));
 
@@ -132,7 +135,7 @@ export default function History() {
             }}
           />
         </Grid>
-        <Grid item>
+        <Grid item className={classes.limitWidth}>
           <ButtonGroup
             //size="large"
             variant="contained"
