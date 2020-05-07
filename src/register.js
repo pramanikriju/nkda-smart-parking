@@ -17,6 +17,7 @@ import FormControl from "@material-ui/core/FormControl";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import PhoneIcon from "@material-ui/icons/Phone";
+import MailIcon from "@material-ui/icons/Mail";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -98,6 +99,31 @@ export default function Login() {
                     // className={clsx(classes.margin, classes.textField)}
                   >
                     <InputLabel htmlFor="standard-adornment-password">
+                      Name
+                    </InputLabel>
+                    <Input
+                      id="standard-adornment-password"
+                      type="name"
+                      //value={values.text}
+                      onChange={handleChange("password")}
+                      variant="outlined"
+                      endAdornment={
+                        <InputAdornment
+                          position="end"
+                          style={{ padding: "12px" }}
+                        >
+                          <AccountCircle />
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl
+                    className={classes.password}
+                    // className={clsx(classes.margin, classes.textField)}
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
                       Email
                     </InputLabel>
                     <Input
@@ -111,7 +137,7 @@ export default function Login() {
                           position="end"
                           style={{ padding: "12px" }}
                         >
-                          <AccountCircle />
+                          <MailIcon />
                         </InputAdornment>
                       }
                     />

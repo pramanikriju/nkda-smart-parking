@@ -79,6 +79,13 @@ const useStyles = makeStyles((theme) => ({
   end: {
     float: "right",
   },
+  endAction: {
+    float: "right",
+    paddingBottom: "16px",
+  },
+  cardContent: {
+    paddingBottom: 0,
+  },
 }));
 
 function BookingDetails() {
@@ -91,7 +98,7 @@ function BookingDetails() {
       <SingleMap center={[22.578564, 88.46249]} />
 
       <Card className={classes.cardItem}>
-        <CardContent className={classes}>
+        <CardContent className={classes.cardContent}>
           <Grid
             container
             spacing={0}
@@ -131,7 +138,7 @@ function BookingDetails() {
             </Grid>
           </Grid>
         </CardContent>
-        <CardActions className={classes.end}>
+        <CardActions className={classes.endAction}>
           <Button
             variant="outlined"
             color="primary"

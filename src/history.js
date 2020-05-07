@@ -33,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
     //background: "linear-gradient(to top, #61dafb, #ffffff)",
     //background: "#f9f9f9",
     padding: "16px",
+    //paddin
     backgroundImage: `url(${Image})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
+  },
+  cardContent: {
+    paddingBottom: 0,
   },
   container: {
     paddingTop: "50px",
@@ -77,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
   },
   end: {
     float: "right",
+  },
+  endAction: {
+    float: "right",
+    paddingBottom: "16px",
   },
   searchItem: {
     background: "none",
@@ -151,7 +159,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
@@ -199,7 +207,7 @@ export default function History() {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardActions className={classes.end}>
+            <CardActions className={classes.endAction}>
               {/* <IconButton aria-label="add to favorites">
                 <PrintDisabledIcon />
               </IconButton> */}
@@ -218,7 +226,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
@@ -265,7 +273,7 @@ export default function History() {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardActions className={classes.end}>
+            <CardActions className={classes.endAction}>
               {/* <IconButton aria-label="add to favorites">
                 <PrintDisabledIcon />
               </IconButton> */}
@@ -284,7 +292,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
@@ -330,7 +338,7 @@ export default function History() {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardActions className={classes.end}>
+            <CardActions className={classes.endAction}>
               <Button
                 variant="outlined"
                 color="primary"
@@ -356,7 +364,7 @@ export default function History() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
@@ -402,7 +410,7 @@ export default function History() {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardActions className={classes.end}>
+            <CardActions className={classes.endAction}>
               <Button
                 variant="outlined"
                 color="primary"
