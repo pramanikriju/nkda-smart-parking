@@ -15,6 +15,7 @@ import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
 import moment from "moment";
 import ClearIcon from "@material-ui/icons/Clear";
+import NavigationIcon from "@material-ui/icons/Navigation";
 
 const useStyles = makeStyles({
   root: {
@@ -76,7 +77,7 @@ export default function Expansion() {
         className={classes.expansionPanelSummary}
       >
         <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon onClick={expand} />}
           aria-label="Expand"
           aria-controls="additional-actions1-content"
           id="additional-actions1-header"
@@ -92,7 +93,7 @@ export default function Expansion() {
               color="secondary"
               //marginleft={100}
               aria-label="Acknowledge"
-              //endIcon={<Icon>send</Icon>}
+              startIcon={<NavigationIcon />}
               onClick={(event) => event.stopPropagation()}
               onFocus={(event) => event.stopPropagation()}
             >
