@@ -37,29 +37,29 @@ const useStyles = makeStyles({
   },
 });
 
-// const garages = [
-//   {
-//     id: 1,
-//     lat: "22.578564",
-//     long: "88.46249",
-//     name: "Axis Mall",
-//     available: Math.floor(Math.random() * 10),
-//   },
-//   {
-//     id: 2,
-//     lat: "22.583260",
-//     long: "88.461419",
-//     name: "Action Area I",
-//     available: Math.floor(Math.random() * 10),
-//   },
-//   {
-//     id: 3,
-//     lat: "22.582965",
-//     long: "88.453372",
-//     name: "AD Block",
-//     available: Math.floor(Math.random() * 10),
-//   },
-// ];
+const garagesBackup = [
+  {
+    id: 1,
+    lat: "22.578564",
+    long: "88.46249",
+    name: "Axis Mall",
+    available: Math.floor(Math.random() * 10),
+  },
+  {
+    id: 2,
+    lat: "22.583260",
+    long: "88.461419",
+    name: "Action Area I",
+    available: Math.floor(Math.random() * 10),
+  },
+  {
+    id: 3,
+    lat: "22.582965",
+    long: "88.453372",
+    name: "AD Block",
+    available: Math.floor(Math.random() * 10),
+  },
+];
 
 function Map() {
   const classes = useStyles();
@@ -92,8 +92,11 @@ function Map() {
       (response) => {
         if (response.status === 200) {
           let data = response.data;
-          console.log(data);
+          //console.log(data);
           setGarages(data);
+          setLoading(false);
+        } else {
+          setGarages(garagesBackup);
           setLoading(false);
         }
       },

@@ -43,6 +43,9 @@ const useStyles = makeStyles({
   expandedRoot: {
     maxHeight: "1rem",
   },
+  right: {
+    float: "right",
+  },
 });
 
 export default function Expansion() {
@@ -59,7 +62,7 @@ export default function Expansion() {
     //event.preventDefault();
     //event.stopPropagation();
     console.log(event.target.value);
-    //setCar(event.target.value);
+    setCar(event.target.value);
   };
 
   const handleDateChange = (date) => {
@@ -68,7 +71,10 @@ export default function Expansion() {
 
   return (
     <div className={classes.root}>
-      <ExpansionPanel className={classes.expansionPanelSummary}>
+      <ExpansionPanel
+        expanded={expanded}
+        className={classes.expansionPanelSummary}
+      >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-label="Expand"
@@ -76,17 +82,36 @@ export default function Expansion() {
           id="additional-actions1-header"
           classes={{ root: classes.expandedRoot }}
         >
-          <Button
-            //size="small"
-            color="primary"
-            //marginleft={100}
-            aria-label="Acknowledge"
-            //endIcon={<Icon>send</Icon>}
-            //onClick={(event) => event.stopPropagation()}
-            //onFocus={(event) => event.stopPropagation()}
+          <Grid
+            justify="space-between" // Add it here :)
+            container
+            spacing={24}
           >
-            Book Now
-          </Button>
+            <Button
+              //size="small"
+              color="secondary"
+              //marginleft={100}
+              aria-label="Acknowledge"
+              //endIcon={<Icon>send</Icon>}
+              onClick={(event) => event.stopPropagation()}
+              onFocus={(event) => event.stopPropagation()}
+            >
+              Navigate
+            </Button>
+            <Button
+              //size="small"
+              color="primary"
+              //marginleft={100}
+              className={classes.right}
+              aria-label="Acknowledge"
+              //endIcon={<Icon>send</Icon>}
+              onClick={expand}
+              //onClick={(event) => event.stopPropagation()}
+              //onFocus={(event) => event.stopPropagation()}
+            >
+              Book Now
+            </Button>
+          </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.expansionPanelDetails}>
           <Grid container className={classes.marginZero}>
@@ -130,12 +155,12 @@ export default function Expansion() {
                 //size="small"
                 color="secondary"
                 //marginleft={100}
-                aria-label="Acknowledge"
+                aria-label="cancel"
                 //endIcon={<Icon>send</Icon>}
-                //onClick={(event) => event.stopPropagation()}
+                onClick={expand}
                 //onFocus={(event) => event.stopPropagation()}
               >
-                Navigate
+                Cancel
               </Button>
             </Grid>
             <Grid item xs={6} className={classes.ctaButtons}>
