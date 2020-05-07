@@ -14,6 +14,7 @@ import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
 import moment from "moment";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles({
   root: {
@@ -157,6 +158,8 @@ export default function Expansion() {
                 aria-label="cancel"
                 //endIcon={<Icon>send</Icon>}
                 onClick={expand}
+                endIcon={<ClearIcon />}
+                variant="outlined"
                 //onFocus={(event) => event.stopPropagation()}
               >
                 Cancel
