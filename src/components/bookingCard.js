@@ -18,6 +18,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import Image from "../img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
 import VehicleIcon from "./vehicleIcon";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     paddingLeft: "1rem",
     float: "left",
+    textAlign: "left",
   },
   online: {
     background: "#7FFF00",
@@ -141,16 +143,29 @@ export default function BookingCardLoading(props) {
           </Button>
         ) : null}
 
-        <Button
-          component={Link}
-          to={"/details/" + props.data.id}
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          startIcon={<InfoIcon />}
-        >
-          View Details
-        </Button>
+        {props.back ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            startIcon={<ArrowBackIcon />}
+            to="/history"
+            component={Link}
+          >
+            Go back
+          </Button>
+        ) : (
+          <Button
+            component={Link}
+            to={"/details/" + props.data.id}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<InfoIcon />}
+          >
+            View Details
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

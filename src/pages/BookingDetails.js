@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SingleMap from "../singleMap";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -12,11 +12,12 @@ import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
 import CardActions from "@material-ui/core/CardActions";
 import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
-
 import PrintIcon from "@material-ui/icons/Print";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import BookingCardLoading from "../components/bookingCardLoading";
+import BookingCard from "../components/bookingCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,10 +90,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/bookings/";
+
 function BookingDetails() {
-  let { id } = useParams();
-  console.log(id);
+  const { id } = useParams();
+  //console.log(id);
   const classes = useStyles();
+
+  const [loading, setLoading] = useState(true);
+  const [booking, setBooking] = useState();
+  const [center, setCenter] = useState([22.578564, 88.46249]);
+
+  const getApiData = useCallback(() => {
+    let axios = require("axios");
+
+    axios.get(DATA_URL + id).then(
+      (response) => {
+        if (response.status === 200) {
+          let data = response.data;
+          console.log(data);
+          setBooking(data);
+          //setCenter([data.lat, data.long]);
+          setLoading(false);
+        } else {
+          //Handle API Error
+        }
+      },
+      (error) => console.log(error)
+    );
+  });
+
+  useEffect(() => {
+    getApiData();
+  }, []);
 
   return (
     <div className="App">
@@ -100,70 +130,17 @@ function BookingDetails() {
 
       <SingleMap center={[22.578564, 88.46249]} />
 
-      <Card className={classes.cardItem}>
-        <CardContent className={classes.cardContent}>
-          <Grid
-            container
-            spacing={0}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <Grid item xs={2}>
-              <Badge
-                className={classes.online}
-                color="secondary"
-                variant="none"
-              >
-                <Avatar variant="rounded" className={classes.rounded}>
-                  <AirportShuttleIcon />
-                </Avatar>
-              </Badge>
-            </Grid>
-            <Grid item xs={10} className={classes.content}>
-              <Typography gutterBottom variant="h5" component="h2">
-                WB AD 0208
-                <Chip
-                  label="Finished"
-                  className={classes.end}
-                  variant="outlined"
-                />
-              </Typography>
-              <Typography>
-                <strong>Booking Date : </strong> May 25 2020
-              </Typography>
-              <Typography>
-                <strong>Booking Time : </strong>03:14 PM - 4:00PM
-              </Typography>
-              <Typography>
-                <strong>Booking Amount : </strong>₹ 500
-              </Typography>
-            </Grid>
-          </Grid>
-        </CardContent>
-        <CardActions className={classes.endAction}>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            to="/history"
-            component={Link}
-            startIcon={<ArrowBackIcon />}
-          >
-            Back
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            startIcon={<PrintIcon />}
-            to="/receipt"
-            component={Link}
-          >
-            Receipt
-          </Button>
-        </CardActions>
-      </Card>
+      <div className={classes.cardItem}>
+        {loading ? (
+          <BookingCardLoading />
+        ) : (
+          <BookingCard
+            back={true}
+            className={classes.cardItem}
+            data={booking}
+          />
+        )}
+      </div>
     </div>
   );
 }

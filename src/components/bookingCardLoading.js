@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     paddingLeft: "1rem",
     float: "left",
+    textAlign: "left",
   },
   online: {
     background: "#7FFF00",
