@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   select: {
-    minWidth: "300px",
+    minWidth: "100%",
     //marginTop: 0,
   },
   left: {

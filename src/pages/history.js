@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     //minWidth: "300px",
     maxWidth: "-webkit-fill-available",
     width: "-webkit-fill-available",
-    marginBottom: "1.3rem",
+    //marginBottom: "1.3rem",
   },
   cssOutlinedInput: {
     background: "rgb(255,255,255,0.8)",
@@ -206,12 +206,12 @@ export default function History() {
         <Grid
           className={classes.container}
           container
-          direction="column"
-          justify="flex-start"
+          direction="row"
+          justify="space-between"
           alignItems="stretch"
-          spacing={0}
+          spacing={2}
         >
-          <Grid item>
+          <Grid item xs={12}>
             <TextField
               className={classes.search}
               id="input-with-icon-textfield"
@@ -232,7 +232,7 @@ export default function History() {
               }}
             />
           </Grid>
-          <Grid item className={classes.limitWidth}>
+          <Grid item xs={12} className={classes.limitWidth}>
             <ButtonGroup
               //size="large"
               variant="contained"
@@ -247,7 +247,7 @@ export default function History() {
             </ButtonGroup>
           </Grid>
           {bookings.map((item, key) => (
-            <Grid item key={item.id}>
+            <Grid xs={12} item key={item.id}>
               <BookingCard data={item} />
             </Grid>
           ))}

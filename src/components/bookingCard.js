@@ -101,11 +101,11 @@ export default function BookingCardLoading(props) {
             </Typography>
 
             <Typography>
-              <strong>Booking Date : </strong>
+              <strong>Date : </strong>
               {new Date(props.data.createdAt).toDateString()}
             </Typography>
             <Typography>
-              <strong>Booking Time : </strong>
+              <strong>Time : </strong>
               {new Date(props.data.createdAt).toTimeString().slice(0, 8)}
             </Typography>
             {props.data.ongoing ? (
@@ -122,7 +122,7 @@ export default function BookingCardLoading(props) {
                   {new Date(props.data.exit_time).toTimeString().slice(0, 8)}
                 </Typography>
                 <Typography>
-                  <strong>Booking Amount : </strong>₹ {props.data.amount}
+                  <strong> Amount : </strong>₹ {props.data.amount}
                 </Typography>
               </div>
             )}
