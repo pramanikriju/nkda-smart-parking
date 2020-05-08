@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import Map from "./map";
-import Search from "./search";
-import Appbar from "./appbar";
+import "./css/App.css";
+import Map from "./components/map";
+import Search from "./components/search";
+import Appbar from "./components/appbar";
 import Grid from "@material-ui/core/Grid";
 
 const markers = [[22.578564, 88.46249], []];

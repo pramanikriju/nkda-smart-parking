@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./css/index.css";
 import App from "./App";
-import Login from "./login";
-import Booking from "./booking";
-import History from "./history";
-import Vehicles from "./vehicles";
-import Create from "./create";
-import Receipt from "./receipt";
-import Register from "./register";
-import BookingDetails from "./BookingDetails";
+import Login from "./pages/login";
+import Booking from "./pages/booking";
+import History from "./pages/history";
+import Vehicles from "./pages/vehicles";
+import Create from "./pages/create";
+import Receipt from "./pages/receipt";
+import Register from "./pages/register";
+import BookingDetails from "./pages/BookingDetails";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

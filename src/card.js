@@ -14,7 +14,7 @@ import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import Expansion from "./expansion";
+import Expansion from "./components/expansion";
 const useStyles = makeStyles({
   root: {
     //maxWidth: 345,

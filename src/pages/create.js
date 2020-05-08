@@ -5,11 +5,11 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Appbar from "./appbar";
+import Appbar from "../components/appbar";
 import Avatar from "@material-ui/core/Avatar";
 import CardActions from "@material-ui/core/CardActions";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
-import Image from "./img/bg.jpg"; // Import using relative path
+import Image from "../img/bg.jpg"; // Import using relative path
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import TextField from "@material-ui/core/TextField";

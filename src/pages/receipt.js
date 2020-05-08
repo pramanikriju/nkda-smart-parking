@@ -4,12 +4,12 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
-import Appbar from "./appbar";
+import Appbar from "../components/appbar";
 
 import CardActions from "@material-ui/core/CardActions";
 
-import Image from "./img/bg.jpg"; // Import using relative path
-import Receipt from "./img/receipt.png"; // Import using relative path
+import Image from "../img/bg.jpg"; // Import using relative path
+import Receipt from "../img/receipt.png"; // Import using relative path
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
