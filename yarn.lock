@@ -11929,6 +11929,11 @@ react-leaflet@^2.6.3:
     hoist-non-react-statics "^3.3.2"
     warning "^4.0.3"
 
+react-moment@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.9.7.tgz#ca570466595b1aa4f7619e62da18b3bb2de8b6f3"
+  integrity sha512-ifzUrUGF6KRsUN2pRG5k56kO0mJBr8kRkWb0wNvtFIsBIxOuPxhUpL1YlXwpbQCbHq23hUu6A0VEk64HsFxk9g==
+
 react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
@@ -12017,6 +12022,11 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-skeleton-loader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-skeleton-loader/-/react-skeleton-loader-1.0.4.tgz#7bdfd35591f97bd10361e3a793360ce98fdf76ab"
+  integrity sha512-o52c3hmadpaMbQ4Gl8inCiAxjkfQopDJ6PCHfuuLh6NxRqL5ossJ1/FoeONIvOf/r4GC+VOB5an/jr4Qmj59zg==
 
 react-transition-group@^4.0.0, react-transition-group@^4.3.0:
   version "4.3.0"

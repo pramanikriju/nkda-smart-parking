@@ -10,7 +10,7 @@ import L from "leaflet";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { makeStyles } from "@material-ui/core/styles";
-import DefaultCard from "../card";
+import DefaultCard from "./card";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import redMarker from "../img/red-marker.svg";
