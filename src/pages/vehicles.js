@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#fff",
     width: "100%",
     maxWidth: "438px",
+    marginBottom: "1.3rem",
   },
   content: {
     paddingLeft: "1rem",
@@ -73,11 +74,15 @@ const useStyles = makeStyles((theme) => ({
   },
   end: {
     float: "right",
+    padding: "16px",
   },
   fab: {
     position: "fixed",
     bottom: "1.3rem",
     right: "1.3rem",
+  },
+  cardContent: {
+    paddingBottom: "0",
   },
 }));
 
@@ -92,13 +97,13 @@ export default function Vehicles() {
         className={classes.container}
         container
         direction="column"
-        justify="flex-start"
+        justify="space-evenly"
         alignItems="stretch"
         spacing={0}
       >
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
@@ -133,7 +138,7 @@ export default function Vehicles() {
                     <strong>Model : </strong>Civic
                   </Typography>
                   <Typography>
-                    <strong>Registration Date : </strong> 02 Feb 2020
+                    <strong>Created At : </strong> 02 Feb 2020
                   </Typography>
                   {/* <Typography>
                     <strong>Booking Amount : </strong>₹ 500
@@ -164,7 +169,7 @@ export default function Vehicles() {
         </Grid>
         <Grid item>
           <Card className={classes.cardItem}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <Grid
                 container
                 spacing={0}
