@@ -26,7 +26,7 @@ ReactDOM.render(
         <Route path="/history">
           <History />
         </Route>
-        <Route exact path="/details">
+        <Route exact path="/details/:id">
           <BookingDetails />
         </Route>
         <Route exact path="/">

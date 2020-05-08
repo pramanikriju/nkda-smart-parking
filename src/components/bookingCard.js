@@ -86,7 +86,7 @@ export default function BookingCardLoading(props) {
           </Grid>
           <Grid item xs={10} className={classes.content}>
             <Typography variant="h5" component="h2">
-              WB AD 0208
+              {props.data.vehicle_number + " " + props.data.vehicle_type}
               <Chip
                 className={classes.end}
                 label={props.data.ongoing ? "Ongoing" : "Finished"}
@@ -95,31 +95,55 @@ export default function BookingCardLoading(props) {
               />
             </Typography>
             <Typography gutterBottom variant="caption" component="div">
-              Maruti Swift Dzire
+              {props.data.vehicle_make}
             </Typography>
 
             <Typography>
-              <strong>Booking Date : </strong> May 25 2020
+              <strong>Booking Date : </strong>
+              {new Date(props.data.createdAt).toDateString()}
             </Typography>
             <Typography>
-              <strong>Booking Time : </strong>03:14 PM
+              <strong>Booking Time : </strong>
+              {new Date(props.data.createdAt).toTimeString().slice(0, 8)}
             </Typography>
-            <Typography>
-              <strong>OTP : </strong>
-              <Typography component="span" color="secondary">
-                5963
+            {props.data.ongoing ? (
+              <Typography>
+                <strong>OTP : </strong>
+                <Typography component="span" color="secondary">
+                  {props.data.otp}
+                </Typography>
               </Typography>
-            </Typography>
+            ) : (
+              <div>
+                <Typography>
+                  <strong>Exit Time : </strong>
+                  {new Date(props.data.exit_time).toTimeString().slice(0, 8)}
+                </Typography>
+                <Typography>
+                  <strong>Booking Amount : </strong>₹ {props.data.amount}
+                </Typography>
+              </div>
+            )}
           </Grid>
         </Grid>
       </CardContent>
       <CardActions className={classes.endAction}>
-        {/* <IconButton aria-label="add to favorites">
-        <PrintDisabledIcon />
-      </IconButton> */}
+        {!props.data.ongoing ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            startIcon={<PrintIcon />}
+            to="/receipt"
+            component={Link}
+          >
+            Receipt
+          </Button>
+        ) : null}
+
         <Button
           component={Link}
-          to="/details"
+          to={"/details/" + props.data.id}
           variant="contained"
           color="primary"
           className={classes.button}

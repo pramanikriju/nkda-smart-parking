@@ -16,6 +16,7 @@ import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
 import PrintIcon from "@material-ui/icons/Print";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,6 +90,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function BookingDetails() {
+  let { id } = useParams();
+  console.log(id);
   const classes = useStyles();
 
   return (
