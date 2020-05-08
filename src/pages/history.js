@@ -158,7 +158,7 @@ export default function History() {
               //label="TextField"
               variant="outlined"
               placeholder="Search Bookings"
-              margin="normal"
+              margin="none"
               //fullWidth
               InputProps={{
                 startAdornment: (
