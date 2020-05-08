@@ -146,12 +146,12 @@ export default function History() {
         <Grid
           className={classes.container}
           container
-          direction="column"
+          direction="row"
           justify="space-between"
           alignItems="stretch"
-          spacing={0}
+          spacing={2}
         >
-          <Grid item>
+          <Grid item xs={12}>
             <TextField
               className={classes.search}
               id="input-with-icon-textfield"
@@ -172,7 +172,7 @@ export default function History() {
               }}
             />
           </Grid>
-          <Grid item className={classes.limitWidth}>
+          <Grid item xs={12} className={classes.limitWidth}>
             <ButtonGroup
               //size="large"
               variant="contained"
@@ -186,10 +186,10 @@ export default function History() {
               <Button startIcon={<ClearIcon />}>Reset</Button>
             </ButtonGroup>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <BookingCardLoading />
           </Grid>
-          <Grid item className={classes.link}>
+          <Grid item xs={12}>
             <BookingCardLoading />
           </Grid>
           {/* <Grid item className={classes.link}>
