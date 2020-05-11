@@ -111,11 +111,47 @@ const useStyles = makeStyles((theme) => ({
 
 const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/bookings";
 
+function filterArray(array, filters) {
+  const filterKeys = Object.keys(filters);
+  return array.filter((item) => {
+    // validates all filter criteria
+    return filterKeys.every((key) => {
+      // ignores non-function predicates
+      if (typeof filters[key] !== "function") return true;
+      return filters[key](item[key]);
+    });
+  });
+}
 export default function History() {
   const classes = useStyles();
 
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
+
+  const [search, setSearch] = useState("");
+
+  function searchChange(event) {
+    let param = event.target.value;
+    setSearch(param);
+
+    if (param !== "") {
+      let filtered = bookings.filter((item) => {
+        // console.log(typeof(item))
+        const lc = JSON.stringify(item).toLowerCase();
+        const uc = JSON.stringify(item).toUpperCase();
+        const filter = param;
+        return lc.includes(filter) || uc.includes(filter);
+      });
+      setBookings(filtered);
+    } else {
+      resetFilters();
+    }
+  }
+
+  function resetFilters() {
+    setLoading(true);
+    getApiData();
+  }
 
   const getApiData = useCallback(() => {
     let axios = require("axios");
@@ -124,7 +160,7 @@ export default function History() {
       (response) => {
         if (response.status === 200) {
           let data = response.data;
-          //console.log(data);
+          console.log(data);
           setBookings(data);
           setLoading(false);
         } else {
@@ -167,6 +203,11 @@ export default function History() {
                     <SearchIcon />
                   </InputAdornment>
                 ),
+                // endAdornment: (
+                //   <InputAdornment position="end">
+                //     <ClearIcon />
+                //   </InputAdornment>
+                // ),
                 classes: {
                   root: classes.cssOutlinedInput,
                 },
@@ -221,12 +262,19 @@ export default function History() {
               placeholder="Search Bookings"
               margin="normal"
               //fullWidth
+              value={search}
+              onChange={searchChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
                   </InputAdornment>
                 ),
+                // endAdornment: (
+                //   <InputAdornment position="end">
+                //     <ClearIcon />
+                //   </InputAdornment>
+                // ),
                 classes: {
                   root: classes.cssOutlinedInput,
                 },
@@ -244,7 +292,9 @@ export default function History() {
             >
               <Button startIcon={<AccessTimeIcon />}>Current</Button>
               <Button startIcon={<HistoryIcon />}>Past</Button>
-              <Button startIcon={<ClearIcon />}>Reset</Button>
+              <Button startIcon={<ClearIcon />} onClick={resetFilters}>
+                Reset
+              </Button>
             </ButtonGroup>
           </Grid>
           {bookings.map((item, key) => (
