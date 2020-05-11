@@ -111,17 +111,6 @@ const useStyles = makeStyles((theme) => ({
 
 const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/bookings";
 
-function filterArray(array, filters) {
-  const filterKeys = Object.keys(filters);
-  return array.filter((item) => {
-    // validates all filter criteria
-    return filterKeys.every((key) => {
-      // ignores non-function predicates
-      if (typeof filters[key] !== "function") return true;
-      return filters[key](item[key]);
-    });
-  });
-}
 export default function History() {
   const classes = useStyles();
 
@@ -146,6 +135,13 @@ export default function History() {
     } else {
       resetFilters();
     }
+  }
+
+  function filterBookings(param) {
+    let filtered = bookings.filter((item) => {
+      return item.ongoing === param;
+    });
+    setBookings(filtered);
   }
 
   function resetFilters() {
@@ -290,8 +286,18 @@ export default function History() {
               aria-label="large outlined primary button group"
               className={classes.search}
             >
-              <Button startIcon={<AccessTimeIcon />}>Current</Button>
-              <Button startIcon={<HistoryIcon />}>Past</Button>
+              <Button
+                startIcon={<AccessTimeIcon />}
+                onClick={() => filterBookings(true)}
+              >
+                Current
+              </Button>
+              <Button
+                startIcon={<HistoryIcon />}
+                onClick={() => filterBookings(false)}
+              >
+                Past
+              </Button>
               <Button startIcon={<ClearIcon />} onClick={resetFilters}>
                 Reset
               </Button>
