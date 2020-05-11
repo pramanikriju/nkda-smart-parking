@@ -27,6 +27,7 @@ import HistoryIcon from "@material-ui/icons/History";
 import ClearIcon from "@material-ui/icons/Clear";
 import BookingCardLoading from "../components/bookingCardLoading";
 import BookingCard from "../components/bookingCard";
+import { fil } from "date-fns/locale";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -115,15 +116,19 @@ export default function History() {
   const classes = useStyles();
 
   const [loading, setLoading] = useState(true);
+  const [resetIcon, setresetIcon] = useState("hidden");
   const [bookings, setBookings] = useState([]);
+  const [filteredBookings, setFilteredBookings] = useState([]);
 
   const [search, setSearch] = useState("");
 
   function searchChange(event) {
     let param = event.target.value;
     setSearch(param);
+    console.log("seraching for", param);
 
     if (param !== "") {
+      setresetIcon("visible");
       let filtered = bookings.filter((item) => {
         // console.log(typeof(item))
         const lc = JSON.stringify(item).toLowerCase();
@@ -131,7 +136,8 @@ export default function History() {
         const filter = param;
         return lc.includes(filter) || uc.includes(filter);
       });
-      setBookings(filtered);
+      //setBookings(filtered);
+      setFilteredBookings(filtered);
     } else {
       resetFilters();
     }
@@ -145,6 +151,8 @@ export default function History() {
   }
 
   function resetFilters() {
+    setSearch("");
+    setresetIcon("hidden");
     setLoading(true);
     getApiData();
   }
@@ -155,9 +163,12 @@ export default function History() {
     axios.get(DATA_URL).then(
       (response) => {
         if (response.status === 200) {
-          let data = response.data;
+          let data = response.data.sort((a, b) =>
+            a.createdAt > b.createdAt ? 1 : -1
+          );
           console.log(data);
           setBookings(data);
+          setFilteredBookings(data);
           setLoading(false);
         } else {
           //Handle API Error
@@ -266,11 +277,11 @@ export default function History() {
                     <SearchIcon />
                   </InputAdornment>
                 ),
-                // endAdornment: (
-                //   <InputAdornment position="end">
-                //     <ClearIcon />
-                //   </InputAdornment>
-                // ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <ClearIcon visibility={resetIcon} onClick={resetFilters} />
+                  </InputAdornment>
+                ),
                 classes: {
                   root: classes.cssOutlinedInput,
                 },
@@ -303,7 +314,7 @@ export default function History() {
               </Button>
             </ButtonGroup>
           </Grid>
-          {bookings.map((item, key) => (
+          {filteredBookings.map((item, key) => (
             <Grid xs={12} item key={item.id}>
               <BookingCard data={item} />
             </Grid>
