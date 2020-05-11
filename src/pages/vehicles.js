@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -18,6 +18,8 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Image from "../img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
+import BookingCardLoading from "../components/bookingCardLoading";
+import VehicleCard from "../components/VehicleCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,8 +88,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/cars";
+
 export default function Vehicles() {
   const classes = useStyles();
+
+  const [vehicles, setvehicles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getApiData = useCallback(() => {
+    let axios = require("axios");
+
+    axios.get(DATA_URL).then(
+      (response) => {
+        if (response.status === 200) {
+          let data = response.data;
+          //console.log(data);
+          setvehicles(data);
+          setLoading(false);
+        } else {
+          //Handle API Error
+        }
+      },
+      (error) => console.log(error)
+    );
+  });
+
+  useEffect(() => {
+    getApiData();
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -101,148 +130,23 @@ export default function Vehicles() {
         alignItems="stretch"
         spacing={0}
       >
-        <Grid item>
-          <Card className={classes.cardItem}>
-            <CardContent className={classes.cardContent}>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={2}>
-                  <Badge
-                    className={classes.online}
-                    color="secondary"
-                    variant="none"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <LocalTaxiIcon />
-                    </Avatar>
-                  </Badge>
-                </Grid>
-                <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    WB AD 0208
-                    <Chip
-                      label="Car"
-                      className={classes.end}
-                      variant="outlined"
-                    />
-                  </Typography>
-                  <Typography>
-                    <strong>Make : </strong> Honda
-                  </Typography>
-                  <Typography>
-                    <strong>Model : </strong>Civic
-                  </Typography>
-                  <Typography>
-                    <strong>Created At : </strong> 02 Feb 2020
-                  </Typography>
-                  {/* <Typography>
-                    <strong>Booking Amount : </strong>₹ 500
-                  </Typography> */}
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions className={classes.end}>
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.button}
-                startIcon={<EditIcon />}
-              >
-                Edit
-              </Button>
-              <Button
-                //to="/details"
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                startIcon={<DeleteIcon />}
-              >
-                Delete
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item>
-          <Card className={classes.cardItem}>
-            <CardContent className={classes.cardContent}>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={2}>
-                  <Badge
-                    className={classes.online}
-                    color="secondary"
-                    variant="none"
-                  >
-                    <Avatar variant="rounded" className={classes.rounded}>
-                      <MotorcycleIcon />
-                    </Avatar>
-                  </Badge>
-                </Grid>
-                <Grid item xs={10} className={classes.content}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    WB BE 1512
-                    <Chip
-                      label="Bike"
-                      className={classes.end}
-                      variant="outlined"
-                    />
-                  </Typography>
-                  <Typography>
-                    <strong>Make : </strong> Bajaj
-                  </Typography>
-                  <Typography>
-                    <strong>Model : </strong> Pulsar
-                  </Typography>
-                  <Typography>
-                    <strong>Registration Date : </strong> 9 Mar 2020
-                  </Typography>
-                  {/* <Typography>
-                    <strong>Booking Amount : </strong>₹ 500
-                  </Typography> */}
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions className={classes.end}>
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.button}
-                startIcon={<EditIcon />}
-              >
-                Edit
-              </Button>
-              <Button
-                //href="/details"
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                startIcon={<DeleteIcon />}
-              >
-                Delete
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Fab
-          color="primary"
-          aria-label="add"
-          className={classes.fab}
-          to="/create"
-          component={Link}
-        >
-          <AddIcon />
-        </Fab>
+        {loading ? (
+          <Grid item>
+            <BookingCardLoading />
+          </Grid>
+        ) : (
+          vehicles.map((item, key) => <VehicleCard data={item} />)
+        )}
       </Grid>
+      <Fab
+        color="primary"
+        aria-label="add"
+        className={classes.fab}
+        to="/create"
+        component={Link}
+      >
+        <AddIcon />
+      </Fab>
     </div>
   );
 }

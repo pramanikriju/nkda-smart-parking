@@ -138,6 +138,7 @@ export default function History() {
   useEffect(() => {
     getApiData();
   }, []);
+
   if (loading) {
     return (
       <div className={classes.root}>
