@@ -126,7 +126,7 @@ export default function Vehicles() {
         className={classes.container}
         container
         direction="column"
-        justify="space-evenly"
+        justify="flex-start"
         alignItems="stretch"
         spacing={0}
       >

@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#fff",
     width: "100%",
     maxWidth: "438px",
-    marginBottom: "1.3rem",
+    //marginBottom: "1.3rem",
   },
   content: {
     paddingLeft: "1rem",
@@ -117,7 +117,11 @@ export default function VehicleCard(props) {
             <Grid item xs={10} className={classes.content}>
               <Typography gutterBottom variant="h5" component="h2">
                 {props.data.number + " " + props.data.type}
-                <Chip label="Car" className={classes.end} variant="outlined" />
+                <Chip
+                  label={props.data.type % 2 === 0 ? "Car" : "Bike"}
+                  className={classes.end}
+                  variant="outlined"
+                />
               </Typography>
               <Typography>
                 <strong>Make : </strong> {props.data.model}
