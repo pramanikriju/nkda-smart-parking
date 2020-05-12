@@ -125,7 +125,7 @@ export default function History() {
   function searchChange(event) {
     let param = event.target.value;
     setSearch(param);
-    console.log("seraching for", param);
+    //console.log("seraching for", param);
 
     if (param !== "") {
       setresetIcon("visible");
@@ -144,10 +144,11 @@ export default function History() {
   }
 
   function filterBookings(param) {
+    console.log(param);
     let filtered = bookings.filter((item) => {
       return item.ongoing === param;
     });
-    setBookings(filtered);
+    setFilteredBookings(filtered);
   }
 
   function resetFilters() {
