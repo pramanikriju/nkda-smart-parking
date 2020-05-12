@@ -1,19 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Appbar from "../components/appbar";
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
-import Badge from "@material-ui/core/Badge";
-import CardActions from "@material-ui/core/CardActions";
-import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
-import MotorcycleIcon from "@material-ui/icons/Motorcycle";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Image from "../img/bg.jpg"; // Import using relative path
@@ -112,7 +100,7 @@ export default function Vehicles() {
       },
       (error) => console.log(error)
     );
-  });
+  }, []);
 
   useEffect(() => {
     getApiData();
@@ -125,13 +113,14 @@ export default function Vehicles() {
       <Grid
         className={classes.container}
         container
-        direction="column"
-        justify="flex-start"
+        direction="row"
+        justify="space-between"
         alignItems="stretch"
-        spacing={0}
+        spacing={2}
+        //spacing={0}
       >
         {loading ? (
-          <Grid item>
+          <Grid item xs={12}>
             <BookingCardLoading />
           </Grid>
         ) : (

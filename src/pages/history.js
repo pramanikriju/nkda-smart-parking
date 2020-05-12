@@ -1,23 +1,9 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Appbar from "../components/appbar";
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
-import Badge from "@material-ui/core/Badge";
-import CardActions from "@material-ui/core/CardActions";
-import DriveEtaIcon from "@material-ui/icons/DriveEta";
-import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
-import LocalTaxiIcon from "@material-ui/icons/LocalTaxi";
-import MotorcycleIcon from "@material-ui/icons/Motorcycle";
-import PrintIcon from "@material-ui/icons/Print";
-import InfoIcon from "@material-ui/icons/Info";
 import Image from "../img/bg.jpg"; // Import using relative path
-import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -27,7 +13,6 @@ import HistoryIcon from "@material-ui/icons/History";
 import ClearIcon from "@material-ui/icons/Clear";
 import BookingCardLoading from "../components/bookingCardLoading";
 import BookingCard from "../components/bookingCard";
-import { fil } from "date-fns/locale";
 
 const useStyles = makeStyles((theme) => ({
   root: {

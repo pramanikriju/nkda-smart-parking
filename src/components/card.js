@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -8,12 +8,6 @@ import Avatar from "@material-ui/core/Avatar";
 import EmojiTransportationIcon from "@material-ui/icons/EmojiTransportation";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
-import { Animated } from "react-animated-css";
-import MomentUtils from "@date-io/moment";
-import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 import Expansion from "./expansion";
 const useStyles = makeStyles({
   root: {
@@ -59,21 +53,6 @@ const useStyles = makeStyles({
 
 function DefaultCard(props) {
   const classes = useStyles();
-
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  const [car, setCar] = useState("");
-
-  const handleChangeCar = (event) => {
-    //event.preventDefault();
-    event.stopPropagation();
-    console.log(event.target.value);
-    setCar(event.target.value);
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
 
   return (
     <Card className={classes.root}>

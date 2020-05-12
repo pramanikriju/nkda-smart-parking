@@ -1,20 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import SingleMap from "../singleMap";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Appbar from "../components/appbar";
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
-import Badge from "@material-ui/core/Badge";
-import CardActions from "@material-ui/core/CardActions";
-import AirportShuttleIcon from "@material-ui/icons/AirportShuttle";
-import PrintIcon from "@material-ui/icons/Print";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import BookingCardLoading from "../components/bookingCardLoading";
 import BookingCard from "../components/bookingCard";
@@ -99,7 +86,7 @@ function BookingDetails() {
 
   const [loading, setLoading] = useState(true);
   const [booking, setBooking] = useState();
-  const [center, setCenter] = useState([22.578564, 88.46249]);
+  //const [center, setCenter] = useState([22.578564, 88.46249]);
 
   const getApiData = useCallback(() => {
     let axios = require("axios");
@@ -118,7 +105,7 @@ function BookingDetails() {
       },
       (error) => console.log(error)
     );
-  });
+  }, []);
 
   useEffect(() => {
     getApiData();

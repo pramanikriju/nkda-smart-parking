@@ -5,7 +5,6 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Appbar from "../components/appbar";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
@@ -14,10 +13,7 @@ import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import Image from "../img/bg.jpg"; // Import using relative path
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
 export default function VehicleCard(props) {
   const classes = useStyles();
   return (
-    <Grid item>
+    <Grid item xs={12}>
       <Card className={classes.cardItem}>
         <CardContent className={classes.cardContent}>
           <Grid
