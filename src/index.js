@@ -10,6 +10,7 @@ import Create from "./pages/create";
 import Receipt from "./pages/receipt";
 import Register from "./pages/register";
 import BookingDetails from "./pages/BookingDetails";
+import Update from "./pages/updateVehicle";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -40,6 +41,9 @@ ReactDOM.render(
         </Route>
         <Route exact path="/create">
           <Create />
+        </Route>
+        <Route exact path="/update/:id">
+          <Update />
         </Route>
         <Route exact path="/receipt">
           <Receipt />

@@ -14,6 +14,7 @@ import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import Image from "../img/bg.jpg"; // Import using relative path
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -142,6 +143,10 @@ export default function VehicleCard(props) {
             color="primary"
             className={classes.button}
             startIcon={<EditIcon />}
+            component={Link}
+            to={{
+              pathname: "/update/" + props.data.id,
+            }}
           >
             Edit
           </Button>

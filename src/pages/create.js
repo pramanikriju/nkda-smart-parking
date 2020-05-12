@@ -166,7 +166,7 @@ export default function Create() {
                     <MenuItem value={10}>Car</MenuItem>
                     <MenuItem value={20}>Bike</MenuItem>
                     <MenuItem value={30}>Taxi</MenuItem>
-                    <MenuItem value={30}>Others</MenuItem>
+                    <MenuItem value={40}>Others</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

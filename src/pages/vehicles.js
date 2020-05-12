@@ -124,7 +124,7 @@ export default function Vehicles() {
             <BookingCardLoading />
           </Grid>
         ) : (
-          vehicles.map((item, key) => <VehicleCard data={item} />)
+          vehicles.map((item, key) => <VehicleCard key={item.id} data={item} />)
         )}
       </Grid>
       <Fab
