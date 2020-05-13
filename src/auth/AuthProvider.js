@@ -37,10 +37,13 @@ function AuthProvider(props) {
           localStorage.setItem("token", data.token);
           setLoading(false);
         } else {
-          setError({ error: true, message: "Error reaching server" });
+          setError({ error: true, message: "Invalid Credentials" });
         }
       },
-      (error) => setError({ error: true, message: error })
+      (error) => {
+        //setError({ error: true, message: "Error reaching server" });
+        console.log("error reaching");
+      }
     );
   });
 
@@ -78,7 +81,7 @@ function AuthProvider(props) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, register }}
+      value={{ user, login, logout, register, token, error }}
       {...props}
     />
   );

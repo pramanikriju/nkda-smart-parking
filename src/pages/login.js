@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const { login } = useAuth();
+  const { login, error } = useAuth();
   const [values, setValues] = React.useState({
     showPassword: false,
     username: "",
@@ -60,6 +60,13 @@ export default function Login() {
     open: false,
     message: "none",
   });
+
+  if (error.error) {
+    setAlert({
+      open: true,
+      message: error.message,
+    });
+  }
 
   const handleChange = (prop) => (event) => {
     //event.stopPropagation();
