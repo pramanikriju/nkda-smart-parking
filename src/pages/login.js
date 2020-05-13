@@ -86,7 +86,7 @@ export default function Login() {
   function handleLogin() {
     console.log(values);
     if (values.username && values.password) {
-      login();
+      login(values.username, values.password);
     } else {
       setAlert({
         open: true,
@@ -208,7 +208,7 @@ export default function Login() {
           </Card>
         </Grid>
       </Grid>
-      <Snackbar autoHideDuration={4000} open={alert.open} onClose={handleClose}>
+      <Snackbar autoHideDuration={3000} open={alert.open} onClose={handleClose}>
         <Alert
           variant="filled"
           elevation={6}
