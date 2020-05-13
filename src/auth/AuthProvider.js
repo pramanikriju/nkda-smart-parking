@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import FullPageLoader from "./FullPageLoader";
 import { createBrowserHistory } from "history";
 
@@ -12,6 +12,10 @@ function AuthProvider(props) {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState("");
+  const [error, setError] = useState({
+    error: false,
+    message: "",
+  });
   const history = createBrowserHistory();
 
   // 🚨 this is the important bit.
@@ -20,13 +24,31 @@ function AuthProvider(props) {
   // whether or not we have a user token and if we do, then we render a spinner
   // while we go retrieve that user's information.
 
-  if (loading) {
-    return <FullPageLoader />;
-  }
+  const getLogin = useCallback(() => {
+    let axios = require("axios");
+
+    axios.get(DATA_URL).then(
+      (response) => {
+        if (response.status === 200) {
+          let data = response.data;
+          console.log(data);
+          setUser(data);
+          setToken(data.token);
+          localStorage.setItem("token", data.token);
+          setLoading(false);
+        } else {
+          setError({ error: true, message: "Error reaching server" });
+        }
+      },
+      (error) => setError({ error: true, message: error })
+    );
+  });
+
   // make a login request
   const login = (username, password) => {
-    console.log("username ", username);
-    setUser("some data here");
+    //console.log("username ", username);
+    //setUser("some data here");
+    getLogin();
   };
   const register = () => {}; // register the user
 
@@ -37,7 +59,23 @@ function AuthProvider(props) {
   const logout = () => {
     history.push("/");
     setUser("");
+    setToken("");
+    localStorage.removeItem("token");
   };
+
+  useEffect(() => {
+    //if token exists, get user data
+    if (token) {
+      //API call to get user
+      console.log("fetching user from server");
+      getLogin();
+    }
+  }, []);
+
+  if (loading) {
+    return <FullPageLoader />;
+  }
+
   return (
     <AuthContext.Provider
       value={{ user, login, logout, register }}

@@ -64,7 +64,7 @@ export default function Appbar() {
   const classes = useStyles();
   const [drawer, setDrawer] = useState(false);
 
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const toggleDrawer = () => (event) => {
     if (
@@ -109,16 +109,20 @@ export default function Appbar() {
             <Grid item xs={2}>
               <Avatar
                 alt="Remy Sharp"
-                //src="https://placedog.net/500/280"
+                src={user.avatar}
                 //className={classes.large}
                 className={classes.userBg}
               >
-                RP
+                {user.name
+                  .toLowerCase()
+                  .split(" ")
+                  .map((s) => s.charAt(0).toUpperCase())
+                  .join("")}
               </Avatar>
             </Grid>
             <Grid item xs={8} align="center" className={classes.user}>
               <Typography variant="h6" component="h6">
-                User Name
+                {user.name}
               </Typography>
             </Grid>
           </Grid>
