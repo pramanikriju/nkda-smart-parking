@@ -1,8 +1,9 @@
 import React from "react";
 import { useAuth } from "./auth/AuthProvider";
 import FullPageLoder from "./auth/FullPageLoader";
+import AuthenticatedApp from "./auth/Authenticated";
 
-const AuthenticatedApp = React.lazy(() => import("./auth/Authenticated"));
+//const AuthenticatedApp = React.lazy(() => import("./auth/Authenticated"));
 const UnauthenticatedApp = React.lazy(() => import("./auth/Unauthenticated"));
 
 export default function App() {
