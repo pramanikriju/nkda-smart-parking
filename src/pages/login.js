@@ -17,6 +17,7 @@ import FormControl from "@material-ui/core/FormControl";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
+  const { login } = useAuth();
   const [values, setValues] = React.useState({
     showPassword: false,
   });
@@ -154,8 +156,9 @@ export default function Login() {
                     color="primary"
                     className={classes.link}
                     endIcon={<Icon>send</Icon>}
-                    component={Link}
-                    to="/app"
+                    //component={Link}
+                    //to="/app"
+                    onClick={login}
                   >
                     Login
                   </Button>

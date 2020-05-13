@@ -18,6 +18,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import CommuteIcon from "@material-ui/icons/Commute";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
 
 const useStyles = makeStyles((theme) => ({
   centered: {
@@ -62,6 +63,8 @@ function ListItemLink(props) {
 export default function Appbar() {
   const classes = useStyles();
   const [drawer, setDrawer] = useState(false);
+
+  const { logout } = useAuth();
 
   const toggleDrawer = () => (event) => {
     if (
@@ -130,7 +133,7 @@ export default function Appbar() {
         >
           <Grid item xs={12}>
             <List component="nav" aria-label="main mailbox folders">
-              <ListItemLink component={Link} to="/app">
+              <ListItemLink component={Link} to="/">
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
@@ -154,7 +157,7 @@ export default function Appbar() {
               <ListItem button>
                 <ListItemText primary="Feedback" />
               </ListItem>
-              <ListItemLink component={Link} to="/">
+              <ListItemLink onClick={logout}>
                 <ListItemText primary="Logout" />
               </ListItemLink>
             </List>

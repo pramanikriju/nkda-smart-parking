@@ -1,12 +1,10 @@
 import React from "react";
 import "../css/App.css";
-import Login from "../pages/login";
 import Booking from "../pages/booking";
 import History from "../pages/history";
 import Vehicles from "../pages/vehicles";
 import Create from "../pages/create";
 import Receipt from "../pages/receipt";
-import Register from "../pages/register";
 import BookingDetails from "../pages/BookingDetails";
 import Update from "../pages/updateVehicle";
 import Dashboard from "../pages/dashboard";
@@ -16,10 +14,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/booking">
-          <Booking />
-        </Route>
-        <Route path="/app">
+        <Route path="/booking" component={Booking} />
+        <Route path="/">
           <Dashboard />
         </Route>
         <Route path="/history">
@@ -27,12 +23,6 @@ function App() {
         </Route>
         <Route exact path="/details/:id">
           <BookingDetails />
-        </Route>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route exact path="/register">
-          <Register />
         </Route>
         <Route exact path="/vehicles">
           <Vehicles />

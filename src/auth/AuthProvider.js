@@ -6,25 +6,31 @@ const AuthContext = React.createContext();
 function AuthProvider(props) {
   // code for pre-loading the user's information if we have their token in
   // localStorage goes here
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [user, setUser] = useState(localStorage.getItem("token") || "");
   const [loading, setLoading] = useState(true);
   // 🚨 this is the important bit.
   // Normally your provider components render the context provider with a value.
   // But we post-pone rendering any of the children until after we've determined
   // whether or not we have a user token and if we do, then we render a spinner
   // while we go retrieve that user's information.
-  if (loading) {
-    return <FullPageLoader />;
-  }
-  const login = () => {}; // make a login request
+
+  //   if (loading) {
+  //     return <FullPageLoader />;
+  //   }
+
+  const login = () => {
+    setUser("some data here");
+  }; // make a login request
   const register = () => {}; // register the user
-  const logout = () => {}; // clear the token in localStorage and the user data
+  const logout = () => {
+    setUser("");
+  }; // clear the token in localStorage and the user data
   // note, I'm not bothering to optimize this `value` with React.useMemo here
   // because this is the top-most component rendered in our app and it will very
   // rarely re-render/cause a performance problem.
   return (
     <AuthContext.Provider
-      value={{ token, login, logout, register }}
+      value={{ user, login, logout, register }}
       {...props}
     />
   );
