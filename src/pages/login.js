@@ -18,6 +18,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +53,12 @@ export default function Login() {
   const { login } = useAuth();
   const [values, setValues] = React.useState({
     showPassword: false,
+    username: "",
+    password: "",
+  });
+  const [alert, setAlert] = React.useState({
+    open: false,
+    message: "none",
   });
 
   const handleChange = (prop) => (event) => {
@@ -65,6 +73,27 @@ export default function Login() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlert({
+      open: false,
+    });
+  };
+
+  function handleLogin() {
+    console.log(values);
+    if (values.username && values.password) {
+      login();
+    } else {
+      setAlert({
+        open: true,
+        message: "Username / Password can't be empty",
+      });
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -105,7 +134,7 @@ export default function Login() {
                       id="standard-adornment-password"
                       type="text"
                       //value={values.text}
-                      onChange={handleChange("password")}
+                      onChange={handleChange("username")}
                       variant="outlined"
                       endAdornment={
                         <InputAdornment
@@ -158,7 +187,7 @@ export default function Login() {
                     endIcon={<Icon>send</Icon>}
                     //component={Link}
                     //to="/app"
-                    onClick={login}
+                    onClick={handleLogin}
                   >
                     Login
                   </Button>
@@ -179,6 +208,16 @@ export default function Login() {
           </Card>
         </Grid>
       </Grid>
+      <Snackbar autoHideDuration={4000} open={alert.open} onClose={handleClose}>
+        <Alert
+          variant="filled"
+          elevation={6}
+          severity="error"
+          onClose={handleClose}
+        >
+          {alert.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

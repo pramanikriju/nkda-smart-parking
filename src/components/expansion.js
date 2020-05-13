@@ -87,7 +87,7 @@ export default function Expansion() {
           <Grid
             justify="space-between" // Add it here :)
             container
-            spacing={24}
+            spacing={2}
           >
             <Button
               //size="small"
