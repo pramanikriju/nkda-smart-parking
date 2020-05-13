@@ -109,7 +109,7 @@ export default function Appbar() {
             <Grid item xs={2}>
               <Avatar
                 alt="Remy Sharp"
-                src={user.avatar}
+                //src={user.avatar}
                 //className={classes.large}
                 className={classes.userBg}
               >

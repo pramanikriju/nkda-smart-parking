@@ -86,7 +86,7 @@ export default function BookingCardLoading(props) {
               <Chip
                 className={classes.end}
                 label={props.data.ongoing ? "Ongoing" : "Finished"}
-                color={props.data.ongoing ? "primary" : "none"}
+                color={props.data.ongoing ? "primary" : "black"}
                 variant="outlined"
               />
             </Typography>
