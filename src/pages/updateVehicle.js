@@ -108,7 +108,7 @@ export default function Update(props) {
       (response) => {
         if (response.status === 200) {
           let data = response.data;
-          console.log(data);
+          //console.log(data);
           setModel(data.model);
           setMake(data.model);
           setNumber(data.temp + " " + data.type);
