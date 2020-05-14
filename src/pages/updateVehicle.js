@@ -20,6 +20,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Link } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Skeleton from "react-skeleton-loader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -143,17 +144,37 @@ export default function Update(props) {
       >
         {loading ? (
           <Card className={classes.cardItem}>
-            <Grid
-              container
-              direction="column"
-              justify="flex-start"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid item xs={12}>
-                <CircularProgress />
+            <CardContent>
+              <Grid
+                container
+                direction="column"
+                justify="flex-start"
+                alignItems="center"
+                spacing={2}
+              >
+                <Grid item xs={12}>
+                  <Skeleton height="40px" />
+                </Grid>
+                <Grid item xs={12}>
+                  <Skeleton />
+                </Grid>
+                <Grid item xs={12} className={classes.fullWidth}>
+                  <Skeleton width="80vw" />
+                </Grid>
+                <Grid item xs={12} className={classes.fullWidth}>
+                  <Skeleton width="80vw" />
+                </Grid>
+                <Grid item xs={12} className={classes.fullWidth}>
+                  <Skeleton width="80vw" />
+                </Grid>
+                <Grid item xs={12} className={classes.fullWidth}>
+                  <Skeleton width="80vw" />
+                </Grid>
               </Grid>
-            </Grid>
+            </CardContent>
+            <CardActions className={classes.end}>
+              <Skeleton className={classes.button} />
+            </CardActions>
           </Card>
         ) : (
           <Card className={classes.cardItem}>
