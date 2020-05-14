@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
   },
   container: {
-    paddingTop: "50px",
+    paddingTop: "60px",
     //minHeight: "auto",
   },
   card: {
@@ -253,7 +253,7 @@ export default function History() {
               //label="TextField"
               variant="outlined"
               placeholder="Search Bookings"
-              margin="normal"
+              margin="none"
               //fullWidth
               value={search}
               onChange={searchChange}
