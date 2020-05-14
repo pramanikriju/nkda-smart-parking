@@ -52,7 +52,7 @@ const useStyles = makeStyles({
   },
 });
 
-const alertPosition = { vertical: "top", horizontal: "center" };
+const alertPosition = { vertical: "bottom", horizontal: "center" };
 
 export default function Expansion() {
   const history = useHistory();
@@ -64,7 +64,7 @@ export default function Expansion() {
   );
   const [car, setCar] = useState("");
   const [alert, setAlert] = useState({
-    open: true,
+    open: false,
     message: "none",
   });
 
@@ -107,7 +107,7 @@ export default function Expansion() {
       setcarError(true);
       setAlert({
         open: true,
-        message: "Invalid time selected",
+        message: "Time/Car not selected",
       });
     }
   }
@@ -239,7 +239,7 @@ export default function Expansion() {
       >
         <Alert
           variant="filled"
-          elevation={99}
+          elevation={12}
           severity="error"
           onClose={handleClose}
         >
