@@ -8,6 +8,7 @@ import Receipt from "../pages/receipt";
 import BookingDetails from "../pages/BookingDetails";
 import Update from "../pages/updateVehicle";
 import Dashboard from "../pages/dashboard";
+import UpdateProfile from "../pages/updateProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path="/update/:id">
           <Update />
+        </Route>
+        <Route exact path="/profile/update">
+          <UpdateProfile />
         </Route>
         <Route exact path="/receipt">
           <Receipt />

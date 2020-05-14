@@ -19,6 +19,7 @@ import CommuteIcon from "@material-ui/icons/Commute";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles((theme) => ({
   centered: {
@@ -152,6 +153,12 @@ export default function Appbar() {
               <ListItemLink component={Link} to="/vehicles">
                 <ListItemIcon>
                   <CommuteIcon />
+                </ListItemIcon>
+                <ListItemText primary="Vehicles" />
+              </ListItemLink>
+              <ListItemLink component={Link} to="/profile/update">
+                <ListItemIcon>
+                  <AccountCircleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Vehicles" />
               </ListItemLink>

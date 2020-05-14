@@ -83,11 +83,6 @@ export default function Expansion() {
     let now = new moment();
     if (date.isBetween(now, now.add(15, "minutes"))) {
       setSelectedDate(date);
-    } else {
-      setAlert({
-        open: true,
-        message: "Invalid time selected",
-      });
     }
   };
 
@@ -107,7 +102,7 @@ export default function Expansion() {
       setcarError(true);
       setAlert({
         open: true,
-        message: "Time/Car not selected",
+        message: "Car not selected",
       });
     }
   }
@@ -239,7 +234,7 @@ export default function Expansion() {
       >
         <Alert
           variant="filled"
-          elevation={12}
+          elevation={24}
           severity="error"
           onClose={handleClose}
         >
