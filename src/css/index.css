@@ -29,3 +29,7 @@ body {
 .leaflet-top .leaflet-control {
   margin-top: 72px !important;
 }
+
+.BrainhubCarouselItem {
+  align-items: flex-end !important;
+}

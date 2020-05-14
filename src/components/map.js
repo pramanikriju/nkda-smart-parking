@@ -38,6 +38,9 @@ const useStyles = makeStyles({
     flexGrow: 1,
     marginTop: "50%",
   },
+  BrainhubCarouselItem: {
+    alignItems: "flex-end !important",
+  },
 });
 
 const iconAnchor = [15, 55];
@@ -176,7 +179,7 @@ function Map() {
         >
           <TileLayer
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-            attribution="Distronix 2020"
+            attribution={"Distronix " + new Date().getFullYear()}
           />
           <FeatureGroup>
             {garages.map((item, key) => (
@@ -202,9 +205,12 @@ function Map() {
             //offset={2}
             minDraggableOffset={9999}
             slides={[
-              <DefaultCard garage={garages[0]} />,
-              <DefaultCard garage={garages[1]} />,
-              <DefaultCard garage={garages[2]} />,
+              <DefaultCard
+                className={classes.BrainhubCarouselItem}
+                garage={garages[0]}
+              />,
+              <DefaultCard className={classes.item} garage={garages[1]} />,
+              <DefaultCard className={classes.item} garage={garages[2]} />,
             ]}
             //infinite
             //keepDirectionWhenDragging

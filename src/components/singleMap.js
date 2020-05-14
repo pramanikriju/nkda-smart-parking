@@ -33,7 +33,7 @@ function SingleMap(props) {
       >
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-          attribution="Distronix 2020"
+          attribution={"Distronix " + new Date().getFullYear()}
         />
         <Marker position={props.center} icon={greenIcon}>
           <Popup>Parking location</Popup>
