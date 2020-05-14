@@ -160,7 +160,7 @@ export default function Appbar() {
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Vehicles" />
+                <ListItemText primary="Profile" />
               </ListItemLink>
             </List>
             <Divider />

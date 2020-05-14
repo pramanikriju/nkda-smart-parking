@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 240,
   },
   cardItem: {
-    background: "rgb(255,255,255,0.8)",
+    background: "rgb(255,255,255,1)",
     width: "100%",
     maxWidth: "438px",
   },
