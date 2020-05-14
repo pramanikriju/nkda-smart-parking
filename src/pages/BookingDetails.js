@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import SingleMap from "../singleMap";
+import SingleMap from "../components/singleMap";
 import { makeStyles } from "@material-ui/core/styles";
 import Appbar from "../components/appbar";
 import { useParams } from "react-router-dom";

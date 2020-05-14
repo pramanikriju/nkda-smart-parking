@@ -176,7 +176,7 @@ function Map() {
         >
           <TileLayer
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-            //attribution="Distronix 2020"
+            attribution="Distronix 2020"
           />
           <FeatureGroup>
             {garages.map((item, key) => (
