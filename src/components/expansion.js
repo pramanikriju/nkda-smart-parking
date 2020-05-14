@@ -16,7 +16,9 @@ import FormControl from "@material-ui/core/FormControl";
 import moment from "moment";
 import ClearIcon from "@material-ui/icons/Clear";
 import NavigationIcon from "@material-ui/icons/Navigation";
-import { Link } from "react-router-dom";
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -50,11 +52,21 @@ const useStyles = makeStyles({
   },
 });
 
+const alertPosition = { vertical: "top", horizontal: "center" };
+
 export default function Expansion() {
+  const history = useHistory();
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [carError, setcarError] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(
+    new moment().add(15, "minutes")
+  );
   const [car, setCar] = useState("");
+  const [alert, setAlert] = useState({
+    open: true,
+    message: "none",
+  });
 
   function expand() {
     setExpanded(!expanded);
@@ -68,8 +80,37 @@ export default function Expansion() {
   };
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    let now = new moment();
+    if (date.isBetween(now, now.add(15, "minutes"))) {
+      setSelectedDate(date);
+    } else {
+      setAlert({
+        open: true,
+        message: "Invalid time selected",
+      });
+    }
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlert({
+      open: false,
+    });
+  };
+
+  function onSubmit() {
+    if (selectedDate && car) {
+      history.push("/details/1");
+    } else {
+      setcarError(true);
+      setAlert({
+        open: true,
+        message: "Invalid time selected",
+      });
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -97,6 +138,8 @@ export default function Expansion() {
               startIcon={<NavigationIcon />}
               onClick={(event) => event.stopPropagation()}
               onFocus={(event) => event.stopPropagation()}
+              href="https://www.google.com/maps/dir/?api=1&destination=22.580147,88.459431&travelmode=driving&dir_action=navigate"
+              target="_blank"
             >
               Navigate
             </Button>
@@ -126,11 +169,16 @@ export default function Expansion() {
                     label="Select booking time"
                     value={selectedDate}
                     onChange={handleDateChange}
-                    maxTime={new moment().add(15, "minutes")}
+                    //maxTime={new moment().add(15, "minutes")}
+                    autoOk={true}
                     fullWidth
                   />
                 </FormControl>
-                <FormControl className={classes.select} margin="dense">
+                <FormControl
+                  className={classes.select}
+                  margin="dense"
+                  error={carError}
+                >
                   <InputLabel
                     id="demo-simple-select-label"
                     //className={classes.left}
@@ -173,8 +221,9 @@ export default function Expansion() {
                 color="primary"
                 className={classes.fab}
                 endIcon={<Icon>send</Icon>}
-                component={Link}
-                to="/history"
+                onClick={onSubmit}
+                //component={Link}
+                //to="/history"
               >
                 Confirm
               </Button>
@@ -182,11 +231,21 @@ export default function Expansion() {
           </Grid>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success">
-            This is a success message!
-            </Alert>
-        </Snackbar> */}
+      <Snackbar
+        autoHideDuration={13000}
+        open={alert.open}
+        onClose={handleClose}
+        anchorOrigin={alertPosition}
+      >
+        <Alert
+          variant="filled"
+          elevation={99}
+          severity="error"
+          onClose={handleClose}
+        >
+          {alert.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
