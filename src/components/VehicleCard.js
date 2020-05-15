@@ -15,6 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import Image from "../img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
+import colors from "./colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,7 +98,14 @@ export default function VehicleCard(props) {
             alignItems="center"
           >
             <Grid item xs={2}>
-              <Avatar variant="rounded" className={classes.rounded}>
+              <Avatar
+                variant="rounded"
+                className={classes.rounded}
+                style={{
+                  backgroundColor:
+                    colors[Math.floor(Math.random() * colors.length)],
+                }}
+              >
                 {props.data.type % 2 === 0 ? (
                   <DriveEtaIcon />
                 ) : (
