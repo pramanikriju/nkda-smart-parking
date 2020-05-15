@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "brand": "Alfa Romeo",
+    "models": ["164", "8C Competizione", "GTV-6", "Milano", "Spider"]
+  },
+  {
+    "id": 2,
+    "brand": "BMW",
+    "models": ["Alliance", "Concord", "Eagle", "Encore", "Spirit"]
+  },
+  {
+    "id": 3,
+    "brand": "Aston Martin",
+    "models": ["V12 Vantage", "V8 Vantage", "Vanquish", "Virage"]
+  },
+  {
+    "id": 4,
+    "brand": "Audi",
+    "models": ["A4", "A5", "A6", "A7", "A8"]
+  }
+]

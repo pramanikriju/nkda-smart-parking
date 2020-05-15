@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   container: {
-    marginTop: "60px",
+    marginTop: "3.5rem",
     //minHeight: "auto",
   },
   card: {
@@ -146,7 +146,7 @@ export default function UpdateProfile() {
                   ref={upload}
                   style={{ display: "none" }}
                   onChange={handleUpload}
-                  accept="image/*"
+                  accept="image/jpg, image/jpeg, image/png"
                 />
                 <Badge
                   color="secondary"

@@ -18,6 +18,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Link } from "react-router-dom";
+import carData from "../data/car-models.json";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,16 +84,29 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "-webkit-fill-available%",
-    minWidth: "333px",
+    minWidth: "300px",
   },
 }));
+
+const makes = carData.map((a) => a.brand);
+
+let models = [];
 
 export default function Create() {
   const classes = useStyles();
   const [type, setType] = useState("");
+  const [make, setMake] = useState("");
+  const [model, setModel] = useState("");
+  //let models = [];
 
-  const handleChange = (event) => {
+  const handleTypeChange = (event) => {
     setType(event.target.value);
+  };
+
+  const handleMakeChange = (event) => {
+    setMake(event.target.value);
+    models = carData.find((o) => o.id === event.target.value).models;
+    //console.log(models);
   };
 
   return (
@@ -102,7 +116,7 @@ export default function Create() {
       <Grid
         className={classes.container}
         container
-        direction="column"
+        direction="row"
         justify="flex-start"
         alignItems="stretch"
         spacing={0}
@@ -127,18 +141,44 @@ export default function Create() {
                 </Typography>
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
-                <TextField
-                  id="standard-basic-1"
-                  label="Vehicle Make"
-                  className={classes.form}
-                />
+                <FormControl>
+                  <InputLabel id="make">Select Vehicle Make</InputLabel>
+                  <Select
+                    labelId="make"
+                    //label="Select Vehicle Type"
+                    id="make"
+                    value={make}
+                    onChange={handleMakeChange}
+                    className={classes.form}
+                    required
+                  >
+                    {carData.map((value, key) => (
+                      <MenuItem key={key} value={value.id}>
+                        {value.brand}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
-                <TextField
-                  id="standard-basic-2"
-                  label="Vehicle Model"
-                  className={classes.form}
-                />
+                <FormControl>
+                  <InputLabel id="model">Select Vehicle Model</InputLabel>
+                  <Select
+                    labelId="model"
+                    //label="Select Vehicle Type"
+                    id="model"
+                    value={model}
+                    onChange={(event) => setModel(event.target.value)}
+                    className={classes.form}
+                    required
+                  >
+                    {models.map((value, key) => (
+                      <MenuItem key={key} value={key}>
+                        {value}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
               <Grid item xs={12} className={classes.fullWidth}>
                 <TextField
@@ -158,7 +198,7 @@ export default function Create() {
                     //label="Select Vehicle Type"
                     id="demo-simple-select"
                     value={type}
-                    onChange={handleChange}
+                    onChange={handleTypeChange}
                     className={classes.form}
                   >
                     <MenuItem value="" disabled>

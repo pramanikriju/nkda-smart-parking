@@ -102,8 +102,7 @@ export default function VehicleCard(props) {
                 variant="rounded"
                 className={classes.rounded}
                 style={{
-                  backgroundColor:
-                    colors[Math.floor(Math.random() * colors.length)],
+                  backgroundColor: colors[props.data.id],
                 }}
               >
                 {props.data.type % 2 === 0 ? (

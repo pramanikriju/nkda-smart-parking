@@ -239,7 +239,7 @@ export default function Login() {
                     className={classes.link}
                     endIcon={<Icon>send</Icon>}
                     component={Link}
-                    to="/"
+                    to="/otp"
                   >
                     Register
                   </Button>
