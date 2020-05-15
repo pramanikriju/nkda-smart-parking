@@ -12,7 +12,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Image from "../img/bg.jpg"; // Import using relative path
 import Receipt from "../img/receipt.png"; // Import using relative path
 
-import CheckIcon from "@material-ui/icons/Check";
+import GetAppIcon from "@material-ui/icons/GetApp";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import Logo from "../img/nkda_logo.jpg";
@@ -202,9 +202,9 @@ export default function Create() {
               variant="contained"
               color="primary"
               className={classes.button}
-              startIcon={<CheckIcon />}
+              startIcon={<GetAppIcon />}
             >
-              Print
+              Download as PDF
             </Button>
           </CardActions>
         </Card>

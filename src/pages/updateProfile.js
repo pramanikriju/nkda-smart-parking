@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, createRef } from "react";
 import { useAuth } from "../auth/AuthProvider";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -19,6 +19,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Link } from "react-router-dom";
+import Badge from "@material-ui/core/Badge";
+import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,18 +88,36 @@ const useStyles = makeStyles((theme) => ({
     width: "-webkit-fill-available%",
     minWidth: "333px",
   },
+  userBg: {
+    width: "4.5rem",
+    height: "4.5rem",
+  },
 }));
 
-export default function UpdateProfile(props) {
+export default function UpdateProfile() {
   const classes = useStyles();
+
   const { user } = useAuth();
+
+  const upload = createRef();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [model, setModel] = useState("");
-  const [number, setNumber] = useState("");
+
   const [password, setPassword] = useState("123456789");
   const [confirmPassword, setconfirmPassword] = useState("123456789");
+
+  const [avatar, setAvatar] = useState(user.avatar ?? null);
+
+  const [uploadImage, setUploadImage] = useState("");
+
+  function handleUpload(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var file = event.target.files[0];
+    setAvatar(URL.createObjectURL(file));
+    setUploadImage(file);
+  }
 
   return (
     <div className={classes.root}>
@@ -105,7 +125,7 @@ export default function UpdateProfile(props) {
       <Grid
         className={classes.container}
         container
-        direction="column"
+        direction="row"
         justify="flex-start"
         alignItems="stretch"
         spacing={0}
@@ -120,9 +140,40 @@ export default function UpdateProfile(props) {
               spacing={2}
             >
               <Grid item xs={12}>
-                <Avatar variant="rounded" className={classes.rounded}>
-                  <AccountCircleIcon />
-                </Avatar>
+                <input
+                  id="myInput"
+                  type="file"
+                  ref={upload}
+                  style={{ display: "none" }}
+                  onChange={handleUpload}
+                  accept="image/*"
+                />
+                <Badge
+                  color="secondary"
+                  badgeContent="+"
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  overlap="circle"
+                  onClick={() => {
+                    upload.current.click();
+                  }}
+                >
+                  <Avatar
+                    alt={user.name}
+                    src={avatar}
+                    //className={classes.large}
+                    className={classes.userBg}
+                  >
+                    {user.name
+                      .toLowerCase()
+                      .split(" ")
+                      .map((s) => s.charAt(0).toUpperCase())
+                      .join("")
+                      .slice(0, 2)}
+                  </Avatar>
+                </Badge>
               </Grid>
               <Grid item xs={12}>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -145,6 +196,16 @@ export default function UpdateProfile(props) {
                   className={classes.form}
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} className={classes.fullWidth}>
+                <TextField
+                  id="standard-basic-1"
+                  label="Phone"
+                  disabled
+                  className={classes.form}
+                  value={parseInt(Math.random() * 10000000000)}
+                  //onChange={(event) => setName(event.target.value)}
                 />
               </Grid>
 

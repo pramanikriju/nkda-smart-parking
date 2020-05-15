@@ -144,6 +144,7 @@ export default function Create() {
                 <TextField
                   id="standard-basic-3"
                   label="Registration Number"
+                  helperText="Ex. WB 12 XY 3456"
                   className={classes.form}
                 />
               </Grid>

@@ -13,6 +13,7 @@ import Image from "../img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
 import VehicleIcon from "./vehicleIcon";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import NavigationIcon from "@material-ui/icons/Navigation";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +136,22 @@ export default function BookingCardLoading(props) {
           >
             Receipt
           </Button>
-        ) : null}
+        ) : (
+          <Button
+            //size="small"
+            variant="outlined"
+            color="secondary"
+            //marginleft={100}
+            aria-label="Acknowledge"
+            startIcon={<NavigationIcon />}
+            onClick={(event) => event.stopPropagation()}
+            onFocus={(event) => event.stopPropagation()}
+            href="https://www.google.com/maps/dir/?api=1&destination=22.580147,88.459431&travelmode=driving&dir_action=navigate"
+            target="_blank"
+          >
+            Navigate
+          </Button>
+        )}
 
         {props.back ? (
           <Button

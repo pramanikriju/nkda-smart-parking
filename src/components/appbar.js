@@ -109,8 +109,8 @@ export default function Appbar() {
           >
             <Grid item xs={2}>
               <Avatar
-                alt="Remy Sharp"
-                //src={user.avatar}
+                alt={user.name}
+                src={user.avatar ?? null}
                 //className={classes.large}
                 className={classes.userBg}
               >
@@ -118,12 +118,13 @@ export default function Appbar() {
                   .toLowerCase()
                   .split(" ")
                   .map((s) => s.charAt(0).toUpperCase())
-                  .join("")}
+                  .join("")
+                  .slice(0, 2)}
               </Avatar>
             </Grid>
             <Grid item xs={8} align="center" className={classes.user}>
               <Typography variant="h6" component="h6">
-                {user.name}
+                {user.name.slice(0, 15)}
               </Typography>
             </Grid>
           </Grid>
