@@ -53,7 +53,10 @@ function AuthProvider(props) {
     //setUser("some data here");
     getLogin();
   };
-  const register = () => {}; // register the user
+  const register = (otp) => {
+    history.push("/");
+    getLogin();
+  }; // register the user
 
   // clear the token in localStorage and the user data
   // note, I'm not bothering to optimize this `value` with React.useMemo here

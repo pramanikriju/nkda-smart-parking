@@ -53,7 +53,7 @@ const date = new Date();
 
 export default function Otp() {
   const classes = useStyles();
-  const { login, error } = useAuth();
+  const { register, error } = useAuth();
   const [values, setValues] = React.useState({
     showPassword: false,
     otp: "",
@@ -102,7 +102,7 @@ export default function Otp() {
   function handleLogin() {
     console.log(values);
     if (values.otp && values.otp.length === 6) {
-      login(values.username, values.password);
+      register();
     } else {
       setAlert({
         open: true,
@@ -150,7 +150,7 @@ export default function Otp() {
                       id="standard-adornment-password"
                       type="number"
                       //value={values.text}
-                      onChange={handleChange("username")}
+                      onChange={handleChange("otp")}
                       variant="outlined"
                       endAdornment={
                         <InputAdornment
