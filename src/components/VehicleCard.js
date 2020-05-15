@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -86,6 +86,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function VehicleCard(props) {
   const classes = useStyles();
+
+  const [deleteVehicle, setdeleteVehicle] = useState({
+    text: "Delete",
+    variant: "outlined",
+  });
+
+  function switchDelete() {
+    if (deleteVehicle.variant === "outlined") {
+      setdeleteVehicle({
+        text: "Are you sure ?",
+        variant: "contained",
+      });
+    } else {
+      setdeleteVehicle({
+        text: "Delete",
+        variant: "outlined",
+      });
+    }
+  }
+
   return (
     <Grid item xs={12}>
       <Card className={classes.cardItem}>
@@ -153,12 +173,13 @@ export default function VehicleCard(props) {
           </Button>
           <Button
             //to="/details"
-            variant="contained"
+            variant={deleteVehicle.variant}
             color="secondary"
             className={classes.button}
             startIcon={<DeleteIcon />}
+            onClick={switchDelete}
           >
-            Delete
+            {deleteVehicle.text}
           </Button>
         </CardActions>
       </Card>
