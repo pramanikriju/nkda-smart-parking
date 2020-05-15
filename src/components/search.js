@@ -25,7 +25,7 @@ export default function Search() {
   return (
     <TextField
       className={classes.root}
-      id="input-with-icon-textfield"
+      id="input-with-icon-textfield1"
       //label="TextField"
       variant="outlined"
       placeholder="Search Garages"

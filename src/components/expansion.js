@@ -182,7 +182,7 @@ export default function Expansion() {
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    id="demo-simple-select1"
                     aria-label="select-car"
                     value={car}
                     onChange={handleChangeCar}

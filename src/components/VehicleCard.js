@@ -16,6 +16,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import Image from "../img/bg.jpg"; // Import using relative path
 import { Link } from "react-router-dom";
 import colors from "./colors";
+import { ReactCSSTransitionGroup } from "react-transition-group"; // ES6
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -179,7 +180,13 @@ export default function VehicleCard(props) {
             startIcon={<DeleteIcon />}
             onClick={switchDelete}
           >
+            {/* <ReactCSSTransitionGroup
+              transitionName="example"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={300}
+            > */}
             {deleteVehicle.text}
+            {/* </ReactCSSTransitionGroup> */}
           </Button>
         </CardActions>
       </Card>

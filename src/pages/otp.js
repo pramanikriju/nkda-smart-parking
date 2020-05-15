@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const date = new Date();
+const RESEND_OTP_LIMIT = 30;
 
 export default function Otp() {
   const classes = useStyles();
@@ -57,7 +57,7 @@ export default function Otp() {
   const [values, setValues] = React.useState({
     showPassword: false,
     otp: "",
-    seconds: 20,
+    seconds: RESEND_OTP_LIMIT,
   });
   const [alert, setAlert] = React.useState({
     open: false,
@@ -174,13 +174,18 @@ export default function Otp() {
                     </Typography>
                   ) : (
                     <Button
-                      //variant="contained"
+                      variant="outlined"
                       color="primary"
                       //className={classes.link}
                       endIcon={<MailOutlineIcon />}
                       //component={Link}
                       //to="/app"
-                      //onClick={handleLogin}
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          seconds: RESEND_OTP_LIMIT,
+                        })
+                      }
                     >
                       Resend OTP
                     </Button>
