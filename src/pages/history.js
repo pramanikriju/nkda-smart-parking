@@ -129,7 +129,7 @@ export default function History() {
   }
 
   function filterBookings(param) {
-    console.log(param);
+    //console.log(param);
     let filtered = bookings.filter((item) => {
       return item.ongoing === param;
     });
@@ -152,7 +152,7 @@ export default function History() {
           let data = response.data.sort((a, b) =>
             a.createdAt > b.createdAt ? 1 : -1
           );
-          console.log(data);
+          //console.log(data);
           setBookings(data);
           setFilteredBookings(data);
           setLoading(false);

@@ -97,19 +97,13 @@ export default function VehicleCard(props) {
             alignItems="center"
           >
             <Grid item xs={2}>
-              <Badge
-                className={classes.online}
-                color="secondary"
-                variant="none"
-              >
-                <Avatar variant="rounded" className={classes.rounded}>
-                  {props.data.type % 2 === 0 ? (
-                    <DriveEtaIcon />
-                  ) : (
-                    <MotorcycleIcon />
-                  )}
-                </Avatar>
-              </Badge>
+              <Avatar variant="rounded" className={classes.rounded}>
+                {props.data.type % 2 === 0 ? (
+                  <DriveEtaIcon />
+                ) : (
+                  <MotorcycleIcon />
+                )}
+              </Avatar>
             </Grid>
             <Grid item xs={10} className={classes.content}>
               <Typography gutterBottom variant="h5" component="h2">
