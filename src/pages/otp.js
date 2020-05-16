@@ -202,7 +202,7 @@ export default function Otp() {
                     //to="/app"
                     onClick={handleLogin}
                   >
-                    Login
+                    Register
                   </Button>
                 </Grid>
                 <Grid item xs={12}>
