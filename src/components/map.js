@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Map as LeafletMap,
   TileLayer,
@@ -82,30 +82,6 @@ function renderSwitch(param) {
   }
 }
 
-const garagesBackup = [
-  {
-    id: 1,
-    lat: "22.578564",
-    long: "88.46249",
-    name: "Axis Mall",
-    available: Math.floor(Math.random() * 10),
-  },
-  {
-    id: 2,
-    lat: "22.583260",
-    long: "88.461419",
-    name: "Action Area I",
-    available: Math.floor(Math.random() * 10),
-  },
-  {
-    id: 3,
-    lat: "22.582965",
-    long: "88.453372",
-    name: "AD Block",
-    available: Math.floor(Math.random() * 10),
-  },
-];
-
 function Map(props) {
   const classes = useStyles();
 
@@ -124,71 +100,66 @@ function Map(props) {
     setActive(key);
     setCenter([garages[key].lat, garages[key].long]);
   }
+  const getLatLngBounds = () => {
+    const latLngs = garages.map((position) => {
+      return L.latLng(position.lat, position.long);
+    });
+    const bounds = L.latLngBounds(latLngs);
+    return bounds;
+  };
 
-  console.log("garages", garages);
-
-  if (props.loading) {
-    return (
-      <Grid container direction="column" justify="center" alignItems="center">
-        <Grid item className={classes.loading}>
-          <CircularProgress />
-        </Grid>
-      </Grid>
-    );
-  } else {
-    return (
-      <div>
-        <LeafletMap
-          center={center}
-          zoom={15}
-          //maxZoom={10}
-          attributionControl={true}
-          zoomControl={true}
-          doubleClickZoom={true}
-          scrollWheelZoom={true}
-          dragging={true}
-          animate={true}
-          easeLinearity={0.35}
-          //ref={mapRef}
-        >
-          <TileLayer
-            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-            attribution={"Distronix " + new Date().getFullYear()}
-          />
-          <FeatureGroup>
-            {garages.map((item, key) => (
-              <Marker
-                position={[item.lat, item.long]}
-                onClick={() => changeCenter(key)}
-                key={item.id}
-                icon={renderSwitch(item.id)}
-                //icon={redIcon}
-              >
-                <Popup>
-                  {item.name} - <br />
-                  <strong>Bays Available : </strong> {item.available}
-                </Popup>
-              </Marker>
-            ))}
-          </FeatureGroup>
-        </LeafletMap>
-        <div className={classes.root}>
-          <Carousel
-            value={active}
-            onChange={changeCarousel}
-            //offset={2}
-            minDraggableOffset={9999}
-            slides={garages.map((item, key) => (
-              <DefaultCard className={classes.item} garage={item} />
-            ))}
-            //infinite
-            //keepDirectionWhenDragging
-            //arrows
-          />
-        </div>
+  return (
+    <div>
+      <LeafletMap
+        center={center}
+        zoom={15}
+        //maxZoom={10}
+        bounds={getLatLngBounds()}
+        attributionControl={true}
+        zoomControl={true}
+        doubleClickZoom={true}
+        scrollWheelZoom={true}
+        dragging={true}
+        animate={true}
+        easeLinearity={0.35}
+      >
+        <TileLayer
+          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          attribution={"Distronix " + new Date().getFullYear()}
+        />
+        <FeatureGroup>
+          {garages.map((item, key) => (
+            <Marker
+              position={[item.lat, item.long]}
+              onClick={() => changeCenter(key)}
+              key={item.id}
+              icon={renderSwitch(item.id)}
+              //icon={redIcon}
+            >
+              <Popup>
+                {item.name} - <br />
+                <strong>Bays Available : </strong> {item.available}
+              </Popup>
+            </Marker>
+          ))}
+        </FeatureGroup>
+      </LeafletMap>
+      <div className={classes.root}>
+        <Carousel
+          value={active}
+          onChange={changeCarousel}
+          //offset={2}
+          minDraggableOffset={9999}
+          slides={garages.map((item, key) => (
+            <DefaultCard className={classes.item} garage={item} />
+          ))}
+          //infinite
+          //keepDirectionWhenDragging
+          //arrows
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Map;

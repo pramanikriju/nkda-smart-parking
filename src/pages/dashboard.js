@@ -4,6 +4,7 @@ import Map from "../components/map";
 import Search from "../components/search";
 import Appbar from "../components/appbar";
 import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const DATA_URL = "https://5eb2c738974fee0016ecce62.mockapi.io/api/garages";
 
@@ -52,7 +53,15 @@ function Dashboard() {
     <div className="App">
       <Appbar id="appbar" />
 
-      <Map filter={searchParam} loading={loading} garages={filteredGarages} />
+      {loading ? (
+        <Grid container direction="column" justify="center" alignItems="center">
+          <Grid item style={{ marginTop: "50%" }}>
+            <CircularProgress />
+          </Grid>
+        </Grid>
+      ) : (
+        <Map filter={searchParam} garages={filteredGarages} />
+      )}
 
       <Grid container direction="row" justify="flex-start" alignItems="stretch">
         <Grid item>
