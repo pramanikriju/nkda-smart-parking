@@ -204,7 +204,7 @@ export default function Create() {
               className={classes.button}
               startIcon={<GetAppIcon />}
             >
-              Download as PDF
+              PDF
             </Button>
           </CardActions>
         </Card>

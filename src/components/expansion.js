@@ -129,6 +129,7 @@ export default function Expansion() {
               //size="small"
               color="secondary"
               //marginleft={100}
+              variant="outlined"
               aria-label="Acknowledge"
               startIcon={<NavigationIcon />}
               onClick={(event) => event.stopPropagation()}
@@ -141,6 +142,7 @@ export default function Expansion() {
             <Button
               //size="small"
               color="primary"
+              //variant="outlined"
               //marginleft={100}
               className={classes.right}
               aria-label="Acknowledge"

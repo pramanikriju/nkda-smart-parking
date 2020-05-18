@@ -106,16 +106,13 @@ const garagesBackup = [
   },
 ];
 
-function Map() {
+function Map(props) {
   const classes = useStyles();
 
   const [active, setActive] = useState(0);
   const [center, setCenter] = useState([22.580147, 88.459431]);
 
-  //Loading and Garage Set functions
-
-  const [loading, setLoading] = useState(true);
-  const [garages, setGarages] = useState([]);
+  const garages = props.garages;
 
   function changeCarousel(selectedIndex) {
     //console.log("Value", selectedIndex);
@@ -124,36 +121,13 @@ function Map() {
   }
 
   function changeCenter(key) {
-    console.log("Value", key);
     setActive(key);
     setCenter([garages[key].lat, garages[key].long]);
   }
 
-  //Get API data
-  const getApiData = useCallback(() => {
-    let axios = require("axios");
+  console.log("garages", garages);
 
-    axios.get(DATA_URL).then(
-      (response) => {
-        if (response.status === 200) {
-          let data = response.data;
-          //console.log(data);
-          setGarages(data);
-          setLoading(false);
-        } else {
-          setGarages(garagesBackup);
-          setLoading(false);
-        }
-      },
-      (error) => console.log(error)
-    );
-  });
-
-  useEffect(() => {
-    getApiData();
-  }, []);
-
-  if (loading) {
+  if (props.loading) {
     return (
       <Grid container direction="column" justify="center" alignItems="center">
         <Grid item className={classes.loading}>
@@ -204,14 +178,9 @@ function Map() {
             onChange={changeCarousel}
             //offset={2}
             minDraggableOffset={9999}
-            slides={[
-              <DefaultCard
-                className={classes.BrainhubCarouselItem}
-                garage={garages[0]}
-              />,
-              <DefaultCard className={classes.item} garage={garages[1]} />,
-              <DefaultCard className={classes.item} garage={garages[2]} />,
-            ]}
+            slides={garages.map((item, key) => (
+              <DefaultCard className={classes.item} garage={item} />
+            ))}
             //infinite
             //keepDirectionWhenDragging
             //arrows

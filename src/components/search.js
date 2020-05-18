@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Search() {
+export default function Search(props) {
   const classes = useStyles();
 
   return (
@@ -30,6 +30,8 @@ export default function Search() {
       variant="outlined"
       placeholder="Search Garages"
       margin="normal"
+      value={props.value}
+      onChange={props.onChangeValue}
       //fullWidth
       InputProps={{
         startAdornment: (
