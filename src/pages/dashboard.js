@@ -23,7 +23,7 @@ function Dashboard() {
       const uc = JSON.stringify(item).toUpperCase();
       return lc.includes(filter) || uc.includes(filter);
     });
-    console.log(filtered);
+    //console.log(filtered);
     setfilteredGarages(filtered);
   }
 

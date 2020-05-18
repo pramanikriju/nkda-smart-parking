@@ -101,11 +101,20 @@ function Map(props) {
     setCenter([garages[key].lat, garages[key].long]);
   }
   const getLatLngBounds = () => {
-    const latLngs = garages.map((position) => {
-      return L.latLng(position.lat, position.long);
-    });
-    const bounds = L.latLngBounds(latLngs);
-    return bounds;
+    if (garages.length > 0) {
+      const latLngs = garages.map((position) => {
+        return L.latLng(position.lat, position.long);
+      });
+
+      const bounds = L.latLngBounds(latLngs);
+      return bounds;
+    } else {
+      const bounds = L.latLngBounds(
+        L.latLng(22.580147, 88.459431),
+        L.latLng(22.580147, 88.459431)
+      );
+      return bounds;
+    }
   };
 
   return (
